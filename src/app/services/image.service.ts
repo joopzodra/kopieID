@@ -7,10 +7,8 @@ import { Subject } from 'rxjs/Subject';
 export class ImageService {
 
   image$ = new Subject<HTMLImageElement>();
-  private image: HTMLImageElement;
 
   loadImage(image: HTMLImageElement) {
-    this.image = image;
     this.image$.next(image);
   }
 }

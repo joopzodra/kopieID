@@ -13,7 +13,7 @@ export class UploadDirective {
   ngOnInit() {
     const img = new Image();
     img.onload = () => this.imageService.loadImage(img);
-    img.src = 'assets/temp-image/stadia.jpg';
+    //img.src = 'assets/temp-image/stadia.jpg';
     //img.src = 'assets/temp-image/JR.jpg';
     //img.src = 'assets/temp-image/JR-rotated.jpg';
   }

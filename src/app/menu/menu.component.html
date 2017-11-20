@@ -1,44 +1,78 @@
-<div id="menu" jrAccordion onlyOneOpen="true" [ngClass]="orientation">
+<div id="menu" [ngClass]="orientation">
 
-  <jr-panel title="U" jrUpload #upload="upload">
-    <div id="upload">
-      <p>Upload een afbeelding (jpg, png) of pdf van je ID naar de browser.</p>
-      <p class="explanation">Het bestand dat je straks downloadt heeft  dezelfde afmetingen als het geuploade bestand.</p>
-      <div id="fileUpload">
-        <label for="upload-button">Bestand kiezen ...</label>
-        <input id="upload-button" type="file" accept='image/*,application/pdf' (change)="upload.onChange($event)">
+  <div id="upload" jrUpload #upload="upload" (click)="uploadModal.style.display='block'">
+    <h2>U</h2>
+    <div #uploadModal class="w3-modal" [style.display]="image ? 'none' : 'block'">
+      <div class="w3-modal-content">
+        <header class="w3-container w3-teal">
+          <span (click)="uploadModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
+          <h3>Kies bestand</h3>
+        </header>
+        <div class="w3-container">
+          <p>Laad een foto van je ID om te bewerken.</p>
+          <div id="fileUpload" class=" w3-padding-16">
+            <label for="upload-button">Bestand kiezen ...</label>
+            <input id="upload-button" type="file" accept='image/*' (change)="upload.onChange($event);uploadModal.style.display='none'">
+          </div>
+        </div>
       </div>
     </div>
-  </jr-panel>
+  </div>
 
-  <div (click)="rotateRight()">
+  <div id="rotate" (click)="rotateRight()" *ngIf="image">
     <h2>R</h2>
   </div>
 
-  <jr-panel title="V">
-    <div id="draw">
-      <button (click)="clearLines()">Wis de lijnen </button>
-      <label for="brush-width">Pas lijndikte aan:</label>
-      <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (change)="setBrushWidth(brushWidthInput.value)">
+  <div id="draw" (click)="drawModal.style.display='block'" *ngIf="image">
+    <h2>V</h2>
+    <div #drawModal class="w3-modal">
+      <div class="w3-modal-content">
+        <header class="w3-container w3-teal">
+          <span (click)="drawModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
+          <h3>Lijnen</h3>
+        </header>
+        <div class="w3-container">
+          <div id="slidercontainer" class="w3-margin">
+            <label for="brush-width" class="w3-padding-24">Pas lijndikte aan: {{brushWidthInput.value}}</label>        
+            <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (input)="setBrushWidth(brushWidthInput.value)" (change)="setBrushWidth(brushWidthInput.value)"class="slider">
+          </div>
+          <button (click)="clearLines()" class="w3-margin w3-button w3-blue">Wis de lijnen </button>
+        </div>
+      </div>
     </div>
-  </jr-panel>
+  </div>
 
-  <jr-panel title="W">
-    <div id="watermark">
-      <p>In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.</p>
-      <p class="toelichting">Bijvoorbeeld: 'Kopie voor verhuurbedrijf Jansen & Janssens, bestemd als identificatie bij de huur van een feesttent.'</p>
-      <p>Om het gebied te verkleinen waar de tekst overheen komt: sleep met de muis.</p>
-      <textarea class="topcoat-textarea" [attr.rows]="4" [attr.cols]="28" #input [value]="inputvalue"  (keyup)="changeText(input.value)" placeholder="Tik je watermerk-tekst ..."></textarea>
-      <input type="reset" (click)="clearText()" value="Wis tekst">
-      <button (click)="clearSelectedArea()">Wis geselecteerde gebied</button>
+  <div id="watermark" (click)="watermarkModal.style.display='block'" *ngIf="image">
+    <h2>W</h2>
+    <div #watermarkModal class="w3-modal">
+      <div class="w3-modal-content">
+        <header class="w3-container w3-teal">
+          <span (click)="watermarkModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
+          <h3>Watermerk</h3>
+        </header>
+        <div class="w3-container">
+          <p>In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.</p>
+          <textarea [attr.rows]="4" [attr.cols]="28" #input [value]="inputvalue"  (keyup)="changeText(input.value)" placeholder="Tik je watermerk-tekst ..."></textarea>
+          <input type="reset" (click)="clearText()" value="Wis tekst">
+        </div>
+      </div>
     </div>
-  </jr-panel>
+  </div>
 
-  <jr-panel title="D">
-    <div id="download">
-      <p>Download je bestand. En klaar!</p>
-      <button (click)="download()" [disabled]="!file">Download</button>
+  <div id="save" (click)="saveModal.style.display='block'" *ngIf="image">
+    <h2>S</h2> 
+    <div #saveModal class="w3-modal">
+      <div class="w3-modal-content">
+        <header class="w3-container w3-teal">
+          <span (click)="saveModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
+          <h3>Opslaan</h3>
+        </header>
+        <div class="w3-container">
+          <p>Sla je bestand op. En klaar!</p>
+          <button (click)="save()" [disabled]="!file">Sla op</button>
+        </div>
+      </div>
     </div>
-  </jr-panel>
+  </div>
 
 </div>
