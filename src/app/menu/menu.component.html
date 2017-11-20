@@ -1,4 +1,4 @@
-<div id="menu" jrAccordion #firstAccordion="accordion" onlyOneOpen="true" [ngClass]="orientation">
+<div id="menu" jrAccordion onlyOneOpen="true" [ngClass]="orientation">
 
   <jr-panel title="U" jrUpload #upload="upload">
     <div id="upload">
@@ -11,23 +11,13 @@
     </div>
   </jr-panel>
 
-<!--   <jr-panel title="R" jrRotate #rotate="rotate">
-    <div id="rotate">
-      <p>Eventueel kun je de afbeelding roteren.</p>
-      <p class="explanation">Het bestand dat je straks downloadt is niet geroteerd. Roteren is alleen om het bewerken in deze app te vergemakkelijken.</p>
-      <button (click)="rotate.rotateLeft()">Roteer linksom</button>
-      <button (click)="rotate.rotateRight()">Roteer rechtsom</button>
-    </div>  
-  </jr-panel> -->
-
-  <div jrRotate #rotate="rotate" (click)="rotate.rotateLeft()">
+  <div (click)="rotateRight()">
     <h2>R</h2>
   </div>
 
   <jr-panel title="V">
     <div id="draw">
-      <p>Trek met de muis een streep door je burger-servicenummer. Je moet de twee getypte, paginabrede regels onderaan je ID hebben. (In oudere paspoorten staat het BSN ook nog in rechts in het midden.)</p>
-      <button (click)="clearDrawing()">Wis lijnen </button>
+      <button (click)="clearLines()">Wis de lijnen </button>
       <label for="brush-width">Pas lijndikte aan:</label>
       <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (change)="setBrushWidth(brushWidthInput.value)">
     </div>

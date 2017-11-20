@@ -2,8 +2,7 @@ import { PanelComponent } from './panel/panel.component';
 import { ContentChildren, QueryList, Input, Directive, AfterContentInit } from '@angular/core';
 
 @Directive({
-  selector: '[jrAccordion]',
-  exportAs: 'accordion'
+  selector: '[jrAccordion]'
 })
 export class AccordionDirective implements AfterContentInit {
   @Input() onlyOneOpen: boolean;

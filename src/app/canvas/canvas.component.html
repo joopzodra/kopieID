@@ -1,7 +1,7 @@
 <div id="canvasses-container" [ngStyle]="{'transform': transformation}">
   <div id="canvasses" #canvasses  [ngStyle]="{'transform': rotation, 'width': canvasWidth + 'px', 'height': canvasHeight + 'px'}" >
     <canvas id="image" jrImage #image>Je browser is niet geschikt deze webtool.</canvas>
-    <div *ngIf="showDraw" jrDraw #draw="draw" >
+    <div *ngIf="showDraw" jrDraw #draw="draw">
       <canvas id="view" #view [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
       <canvas id="temp" #temp (mousedown)="draw.startLine($event)" (mousemove)="draw.drawLine($event)" (mouseup)="draw.endLine($event)" [style.pointer-events]="true ? 'auto' : 'none' " [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
     </div>

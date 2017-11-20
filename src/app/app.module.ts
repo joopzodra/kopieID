@@ -6,13 +6,13 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { MenuComponent } from './menu/menu.component';
 import { PanelComponent } from './menu/panel/panel.component'
 import { AccordionDirective } from './menu/accordion.directive'
-import { RotateDirective } from './menu/rotate/rotate.directive'
 import { DrawDirective } from './canvas/draw/draw.directive'
 import { UploadDirective } from './menu/upload/upload.directive'
 import { ImageDirective } from './canvas/image/image.directive'
 
 import { CanvasService } from './services/canvas.service'
 import { ImageService } from './services/image.service';
+import {DrawService } from './services/draw.service'
 import { Globals } from './helpers/globals'
 
 @NgModule({
@@ -22,7 +22,6 @@ import { Globals } from './helpers/globals'
     MenuComponent,
     PanelComponent,
     AccordionDirective,
-    RotateDirective,
     DrawDirective,
     UploadDirective,
     ImageDirective
@@ -33,6 +32,7 @@ import { Globals } from './helpers/globals'
   providers: [
     CanvasService,
     ImageService,
+    DrawService,
     Globals
   ],
   bootstrap: [AppComponent]

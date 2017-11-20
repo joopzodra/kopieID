@@ -1,7 +1,8 @@
-import { Directive, ContentChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Directive, ContentChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { CanvasService } from '../../services/canvas.service'
+import { DrawService } from '../../services/draw.service'
 
-/* DrawDirective puts the lines on canvas that the user draws with mouse or gesture. updateCanvasses() is called after the mouseup event or end of gesture. updateCanvasses copies the line from the tempCanvas to the viewCanvas. This saves the line, since lines on the tempCanvas are cleared on each mousemove. The inMemCanvas stores the content of the viewCanvas, since canvasses are cleared when they are resized (which happens by resizing the window or change of viewport orientation). The inMemCanvas is not appended to the DOM so its doesn't resize. */
+/** DrawDirective puts the lines on canvas that the user draws with mouse or gesture. updateCanvasses() is called after the mouseup event or end of gesture. updateCanvasses copies the line from the tempCanvas to the viewCanvas. This saves the line, since lines on the tempCanvas are cleared on each mousemove. The inMemCanvas stores the content of the viewCanvas, since canvasses are cleared when they are resized (which happens by resizing the window or change of viewport orientation). The inMemCanvas is not appended to the DOM so its doesn't resize. */
 
 @Directive({
   selector: '[jrDraw]',
@@ -9,7 +10,7 @@ import { CanvasService } from '../../services/canvas.service'
 })
 export class DrawDirective implements AfterViewInit {
 
-  constructor(private canvasService: CanvasService) { }
+  constructor(private canvasService: CanvasService, private drawService: DrawService) { }
 
   @ContentChild('temp') temp: ElementRef;
   tempCanvas: HTMLCanvasElement;
@@ -18,7 +19,7 @@ export class DrawDirective implements AfterViewInit {
   viewCanvas: HTMLCanvasElement;
   viewContext: CanvasRenderingContext2D;
   inMemCanvas = document.createElement('canvas');
-  inMmeCtx = this.inMemCanvas.getContext('2d');
+  inMmeContext = this.inMemCanvas.getContext('2d');
 
   started = false;
   x0: number;
@@ -28,15 +29,16 @@ export class DrawDirective implements AfterViewInit {
   mouseEventCache: MouseEvent;
   relativeWidth: number;
   relativeHeigth: number;
+  lineWidth = 10;
 
   ngAfterViewInit() {
     this.tempCanvas = this.temp.nativeElement;
     this.tempContext = this.tempCanvas.getContext('2d');
     this.viewCanvas = this.view.nativeElement;
     this.viewContext = this.viewCanvas.getContext('2d');
-    this.canvasService.canvasSize$.subscribe(sizes => {
-      this.onCanvasResize(sizes);
-    });
+    this.canvasService.canvasSize$.subscribe(sizes => this.onCanvasResize(sizes));
+    this.drawService.clearLines$.subscribe(clear => this.clearLines());
+    this.drawService.setBrushWidth$.subscribe(value => this.setBrushWidth(value));
   }
 
   startLine(event: MouseEvent) {
@@ -54,7 +56,7 @@ export class DrawDirective implements AfterViewInit {
     this.tempContext.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
     this.tempContext.beginPath();
     this.tempContext.moveTo(this.x0, this.y0);
-    this.tempContext.lineWidth = 10//this.canvasService.lineWidth;
+    this.tempContext.lineWidth = this.lineWidth;
     this.tempContext.lineCap = 'round';
     this.tempContext.lineTo(event.offsetX * this.relativeWidth, event.offsetY * this.relativeHeigth);
     this.tempContext.stroke();
@@ -69,16 +71,29 @@ export class DrawDirective implements AfterViewInit {
     }
   }
 
+  @HostListener('document:mouseup', ['$event']) onMouseup(event: MouseEvent) {
+    this.endLine(this.mouseEventCache);
+  }
+
   updateCanvasses() {
     this.inMemCanvas.width = this.tempCanvas.width;
     this.inMemCanvas.height = this.tempCanvas.height;
     this.viewContext.drawImage(this.tempCanvas, 0, 0);
-    this.inMmeCtx.drawImage(this.viewCanvas, 0, 0)
+    this.inMmeContext.drawImage(this.viewCanvas, 0, 0)
     this.tempContext.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
   }
 
   onCanvasResize(sizes: { width: number, height: number }) {
-    setTimeout(() => this.viewContext.drawImage(this.inMemCanvas, 0, 0, sizes.width, sizes.height), 0);    
+    setTimeout(() => this.viewContext.drawImage(this.inMemCanvas, 0, 0, sizes.width, sizes.height), 0);
+  }
+
+  clearLines() {
+    this.viewContext.clearRect(0, 0, this.viewCanvas.width, this.viewCanvas.height);
+    this.inMmeContext.clearRect(0, 0, this.inMemCanvas.width, this.inMemCanvas.height);
+  }
+
+  setBrushWidth(value: number) {
+    this.lineWidth = value;
   }
 
 }
