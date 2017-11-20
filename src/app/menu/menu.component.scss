@@ -1,0 +1,10 @@
+#menu {
+  color: red;
+  display: flex; 
+  flex-flow: column;
+}
+
+#menu.portrait {
+  flex-flow: row;
+  justify-content: space-around;
+}

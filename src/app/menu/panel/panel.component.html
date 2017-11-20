@@ -1,0 +1,4 @@
+<div class="panel" >
+  <h2 (click)="togglePanel()">{{title}}</h2>
+  <ng-content *ngIf="open"></ng-content>
+</div>

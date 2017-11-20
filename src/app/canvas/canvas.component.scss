@@ -1,0 +1,16 @@
+#temp {
+  border: solid 1px red;
+}
+#view {
+  border: solid 1px blue;
+  pointer-events: none;
+}
+
+#canvasses {
+  background-color: #eee;
+  position: relative;
+}
+#view, #temp, #image {
+  position:  absolute;
+}
+

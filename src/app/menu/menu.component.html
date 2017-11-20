@@ -1,0 +1,54 @@
+<div id="menu" jrAccordion #firstAccordion="accordion" onlyOneOpen="true" [ngClass]="orientation">
+
+  <jr-panel title="U" jrUpload #upload="upload">
+    <div id="upload">
+      <p>Upload een afbeelding (jpg, png) of pdf van je ID naar de browser.</p>
+      <p class="explanation">Het bestand dat je straks downloadt heeft  dezelfde afmetingen als het geuploade bestand.</p>
+      <div id="fileUpload">
+        <label for="upload-button">Bestand kiezen ...</label>
+        <input id="upload-button" type="file" accept='image/*,application/pdf' (change)="upload.onChange($event)">
+      </div>
+    </div>
+  </jr-panel>
+
+<!--   <jr-panel title="R" jrRotate #rotate="rotate">
+    <div id="rotate">
+      <p>Eventueel kun je de afbeelding roteren.</p>
+      <p class="explanation">Het bestand dat je straks downloadt is niet geroteerd. Roteren is alleen om het bewerken in deze app te vergemakkelijken.</p>
+      <button (click)="rotate.rotateLeft()">Roteer linksom</button>
+      <button (click)="rotate.rotateRight()">Roteer rechtsom</button>
+    </div>  
+  </jr-panel> -->
+
+  <div jrRotate #rotate="rotate" (click)="rotate.rotateLeft()">
+    <h2>R</h2>
+  </div>
+
+  <jr-panel title="V">
+    <div id="draw">
+      <p>Trek met de muis een streep door je burger-servicenummer. Je moet de twee getypte, paginabrede regels onderaan je ID hebben. (In oudere paspoorten staat het BSN ook nog in rechts in het midden.)</p>
+      <button (click)="clearDrawing()">Wis lijnen </button>
+      <label for="brush-width">Pas lijndikte aan:</label>
+      <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (change)="setBrushWidth(brushWidthInput.value)">
+    </div>
+  </jr-panel>
+
+  <jr-panel title="W">
+    <div id="watermark">
+      <p>In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.</p>
+      <p class="toelichting">Bijvoorbeeld: 'Kopie voor verhuurbedrijf Jansen & Janssens, bestemd als identificatie bij de huur van een feesttent.'</p>
+      <p>Om het gebied te verkleinen waar de tekst overheen komt: sleep met de muis.</p>
+      <textarea class="topcoat-textarea" [attr.rows]="4" [attr.cols]="28" #input [value]="inputvalue"  (keyup)="changeText(input.value)" placeholder="Tik je watermerk-tekst ..."></textarea>
+      <input type="reset" (click)="clearText()" value="Wis tekst">
+      <button (click)="clearSelectedArea()">Wis geselecteerde gebied</button>
+    </div>
+  </jr-panel>
+
+  <jr-panel title="D">
+    <div id="download">
+      <p>Download je bestand. En klaar!</p>
+      <button (click)="download()" [disabled]="!file">Download</button>
+    </div>
+  </jr-panel>
+
+</div>
