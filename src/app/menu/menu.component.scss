@@ -3,11 +3,6 @@
   flex-flow: column;
 }
 
-#menu.portrait {
-  flex-flow: row;
-  justify-content: space-around;
-}
-
 #upload-input {
   display: none;
 }
@@ -26,6 +21,11 @@
 }
 
 @media (orientation: portrait) {
+  #menu {
+    flex-flow: row;
+    justify-content: space-around;
+  }
+
   .menu-item {
     margin: 12px 15px;
   }  

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CanvasService } from '../services/canvas.service'
 import { ImageService } from '../services/image.service'
 import { DrawService } from '../services/draw.service'
@@ -11,7 +11,6 @@ import { WatermarkService } from '../services/watermark.service';
 })
 export class MenuComponent implements OnInit {
 
-  @Input('orientation') orientation: string;
   image: HTMLImageElement;
   watermarkText = 'Kopie voor administratie';
 

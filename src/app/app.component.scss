@@ -6,11 +6,6 @@
   margin: 0 auto;
   max-width: $max-app-size;
   height: $max-app-size - $menu-size;
-  
-  jr-menu {
-    height: auto;
-    width: $menu-size;
-  }
 
   @media (min-height: $max-app-size) {
     margin-top: 20px;
@@ -21,13 +16,20 @@
   }
 }
 
-#app-container.portrait {
-  flex-flow:  column;
-  max-width: $max-app-size - $menu-size;
-  height: $max-app-size;
+jr-menu {
+  height: auto;
+  width: $menu-size;
+}
 
-  jr-menu {
-    height: $menu-size;
-    width: auto;
+@media (orientation: portrait) {
+  #app-container {
+    flex-flow:  column;
+    max-width: $max-app-size - $menu-size;
+    height: $max-app-size;
+
+    jr-menu {
+      height: $menu-size;
+      width: auto;
+    }
   }
 }

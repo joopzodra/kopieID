@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription'
 import { CanvasService } from '../services/canvas.service'
 import { Globals } from '../helpers/globals'
@@ -23,7 +23,6 @@ export class CanvasComponent implements OnInit, OnChanges {
   translation = '';
   scale = '';
   image: HTMLImageElement;
-  @Input('orientation') orientation: string;
 
   constructor(private canvasService: CanvasService, private globals: Globals, private imageService: ImageService) {}
 
