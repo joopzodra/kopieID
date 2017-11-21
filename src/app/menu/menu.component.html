@@ -1,73 +1,73 @@
 <div id="menu" [ngClass]="orientation">
 
-  <div id="upload" jrUpload #upload="upload" (click)="uploadModal.style.display='block'">
-    <h2>U</h2>
+  <div id="upload-menu" class="menu-item" jrUpload #upload="upload" (click)="uploadModal.style.display='block'">
+    <h2></h2>
     <div #uploadModal class="w3-modal" [style.display]="image ? 'none' : 'block'">
-      <div class="w3-modal-content">
-        <header class="w3-container w3-teal">
+      <div class="w3-modal-content w3-text-black">
+        <header class="w3-container w3-theme-d4">
           <span (click)="uploadModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
-          <h3>Kies bestand</h3>
+          <h3>Foto laden</h3>
         </header>
-        <div class="w3-container">
-          <p>Laad een foto van je ID om te bewerken.</p>
+        <div class="w3-container w3-theme-l4">
+          <p>Laad een foto van je ID.</p>
           <div id="fileUpload" class=" w3-padding-16">
-            <label for="upload-button">Bestand kiezen ...</label>
-            <input id="upload-button" type="file" accept='image/*' (change)="upload.onChange($event);uploadModal.style.display='none'">
+            <label for="upload-input" id="upload-label" class="w3-button w3-theme">Foto kiezen ...</label>
+            <input id="upload-input" type="file" size="150" accept='image/*' (change)="resetRotation();upload.onChange($event);uploadModal.style.display='none'">
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="rotate" (click)="rotateRight()" *ngIf="image">
-    <h2>R</h2>
+  <div id="rotate-menu" class="menu-item" (click)="rotateRight()" *ngIf="image">
+    <h2></h2>
   </div>
 
-  <div id="draw" (click)="drawModal.style.display='block'" *ngIf="image">
-    <h2>V</h2>
+  <div id="draw-menu" class="menu-item" (click)="drawModal.style.display='block'" *ngIf="image">
+    <h2></h2>
     <div #drawModal class="w3-modal">
-      <div class="w3-modal-content">
-        <header class="w3-container w3-teal">
+      <div class="w3-modal-content w3-text-black">
+        <header class="w3-container w3-theme-d4">
           <span (click)="drawModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
           <h3>Lijnen</h3>
         </header>
-        <div class="w3-container">
+        <div class="w3-container w3-theme-l4">
           <div id="slidercontainer" class="w3-margin">
-            <label for="brush-width" class="w3-padding-24">Pas lijndikte aan: {{brushWidthInput.value}}</label>        
-            <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (input)="setBrushWidth(brushWidthInput.value)" (change)="setBrushWidth(brushWidthInput.value)"class="slider">
+            <label for="pen-width" class="w3-padding-24">Pas lijndikte aan: {{penWidthInput.value}}</label>        
+            <input id="pen-width" #penWidthInput type="range" min="4" max="25" value="10" (input)="setPenWidth(penWidthInput.value)" (change)="setPenWidth(penWidthInput.value)"class="slider">
           </div>
-          <button (click)="clearLines()" class="w3-margin w3-button w3-blue">Wis de lijnen </button>
+          <button (click)="clearLines()" class="w3-margin w3-button w3-theme">Wis de lijnen </button>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="watermark" (click)="watermarkModal.style.display='block'" *ngIf="image">
-    <h2>W</h2>
+  <div id="watermark-menu" class="menu-item" (click)="watermarkModal.style.display='block'" *ngIf="image">
+    <h2></h2>
     <div #watermarkModal class="w3-modal">
-      <div class="w3-modal-content">
-        <header class="w3-container w3-teal">
+      <div class="w3-modal-content w3-text-black">
+        <header class="w3-container w3-theme-d4">
           <span (click)="watermarkModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
           <h3>Watermerk</h3>
         </header>
-        <div class="w3-container">
-          <p>In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.</p>
-          <textarea [attr.rows]="4" [attr.cols]="28" #input [value]="inputvalue"  (keyup)="changeText(input.value)" placeholder="Tik je watermerk-tekst ..."></textarea>
-          <input type="reset" (click)="clearText()" value="Wis tekst">
+        <div class="w3-container w3-theme-l4">
+          <p>Voeg tekst voor watermerk toe.</p>
+          <textarea [attr.rows]="4" #input [value]="watermarkText"  (keyup)="changeWatermarkText(input.value)"></textarea>
+          <input type="reset" (click)="clearWatermarkText()" value="Wis tekst">
         </div>
       </div>
     </div>
   </div>
 
-  <div id="save" (click)="saveModal.style.display='block'" *ngIf="image">
-    <h2>S</h2> 
+  <div id="save-menu" class="menu-item" (click)="saveModal.style.display='block'" *ngIf="image">
+    <h2></h2> 
     <div #saveModal class="w3-modal">
-      <div class="w3-modal-content">
-        <header class="w3-container w3-teal">
+      <div class="w3-modal-content w3-text-black">
+        <header class="w3-container w3-theme-d4">
           <span (click)="saveModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
           <h3>Opslaan</h3>
         </header>
-        <div class="w3-container">
+        <div class="w3-container w3-theme-l4">
           <p>Sla je bestand op. En klaar!</p>
           <button (click)="save()" [disabled]="!file">Sla op</button>
         </div>

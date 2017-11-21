@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CanvasService } from '../services/canvas.service'
 import { ImageService } from '../services/image.service'
 import { DrawService } from '../services/draw.service'
+import { WatermarkService } from '../services/watermark.service';
 
 @Component({
   selector: 'jr-menu',
@@ -12,22 +13,38 @@ export class MenuComponent implements OnInit {
 
   @Input('orientation') orientation: string;
   image: HTMLImageElement;
+  watermarkText = 'Kopie voor administratie';
 
-  constructor(private canvasService: CanvasService, private imageService: ImageService, private drawService: DrawService) { }
+  constructor(private canvasService: CanvasService, private imageService: ImageService, private drawService: DrawService, private watermarkService: WatermarkService) { }
 
   ngOnInit() {
     this.imageService.image$.subscribe(image => this.image = image);
+    this.changeWatermarkText(this.watermarkText);
   }
 
   rotateRight() {
-    this.canvasService.rotate$.next(90);
+    this.canvasService.rotate(90);
+  }
+
+  resetRotation() {
+    this.canvasService.resetRotation();
   }
 
   clearLines() {
     this.drawService.clearLines();
   }
 
-  setBrushWidth(value: number) {
-    this.drawService.setBrushWidth(value);
+  setPenWidth(value: number) {
+    this.drawService.setPenWidth(value);
+  }
+
+  changeWatermarkText(value: string) {
+    this.watermarkText = value;
+    this.watermarkService.writeWatermark(value);
+  }
+
+  clearWatermarkText() {
+    this.watermarkText = '';
+    this.watermarkService.writeWatermark('');
   }
 }

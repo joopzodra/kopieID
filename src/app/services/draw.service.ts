@@ -7,14 +7,14 @@ import { Subject } from 'rxjs/Subject';
 export class DrawService {
 
   clearLines$ = new Subject<boolean>();
-  setBrushWidth$ = new Subject<number>();
+  setPenWidth$ = new Subject<number>();
 
   clearLines() {
     this.clearLines$.next(true);
   }
 
-  setBrushWidth(value: number) {
-    this.setBrushWidth$.next(value);
+  setPenWidth(value: number) {
+    this.setPenWidth$.next(value);
   }
 }
 

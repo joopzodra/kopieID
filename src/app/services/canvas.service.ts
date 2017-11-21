@@ -13,6 +13,7 @@ export class CanvasService {
     window.addEventListener('resize', () => this.globals.resizeThrottler(() => this.maxSizeCanvas()), false); // call this.resizeThrottler from within an arrow function to have CanvasService as this; wrap this.maxSizeCanvas in arrow function so it has the CanvasService as this;
   }
 
+  private rotation = 0;
   maxSizeCanvas$ = new BehaviorSubject({width: 0, height: 0});
   canvasSize$ = new Subject<{width: number, height: number}>();
   rotate$ = new BehaviorSubject(0);
@@ -36,6 +37,16 @@ export class CanvasService {
 
   setCanvasSize(size: { width: number, height: number }) {
     this.canvasSize$.next(size);
+  }
+
+  rotate(value: number) {
+    this.rotation = this.rotation + value;
+    this.rotate$.next(this.rotation);
+  }
+
+  resetRotation() {
+    this.rotation = 0;
+    this.rotate$.next(0);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription'
 import { CanvasService } from '../services/canvas.service'
 import { Globals } from '../helpers/globals'
+import { ImageService} from '../services/image.service'
 
 /* CanvasComponent contains in its template all the canvasses. It has subsciptions to the CanvasService to adjust the canvasses and/or the divs around the canvasses to rotation and resizing. */
 
@@ -21,15 +22,14 @@ export class CanvasComponent implements OnInit, OnChanges {
   transformation = '';
   translation = '';
   scale = '';
+  image: HTMLImageElement;
   @Input('orientation') orientation: string;
 
-  constructor(private canvasService: CanvasService, private globals: Globals) { }
+  constructor(private canvasService: CanvasService, private globals: Globals, private imageService: ImageService) {}
 
   ngOnInit() {
     this.canvasService.rotate$.subscribe(rotation => {
-      const currentRotation = +this.rotation.match(/rotate\((-?\d+)deg\)/)[1];
-      const newRotation = currentRotation + rotation;
-      this.rotation = `rotate(${newRotation}deg)`;
+      this.rotation = `rotate(${rotation}deg)`;
       this.setTranformation(this.rotation);
     });
     this.canvasService.canvasSize$.subscribe(sizes => {
@@ -42,6 +42,7 @@ export class CanvasComponent implements OnInit, OnChanges {
       this.maxCanvasHeight = maxSize.height;
       this.setTranformation(this.rotation);
     });
+    this.imageService.image$.subscribe(image => this.image = image);
   }
 
   ngOnChanges() {
@@ -50,12 +51,13 @@ export class CanvasComponent implements OnInit, OnChanges {
 
   setScale(rotation: number) {
     if (rotation % 180 !== 0) {
-      const actualWidth = this.canvasHeight;
-      const actualHeight = this.canvasWidth;
-      const scaleX = this.maxCanvasWidth / actualWidth;
-      const scaleY = this.maxCanvasHeight / actualHeight;
+      const rotatedCanvasWidth = this.canvasHeight;
+      const rotatedCanvasHeight = this.canvasWidth;
+      const rotatedImageWidth = this.image.height;
+      const rotatedImageHeight = this.image.width;
+      const scaleX = Math.min(this.maxCanvasWidth, rotatedImageWidth) / rotatedCanvasWidth;
+      const scaleY = Math.min(this.maxCanvasHeight, rotatedImageHeight) / rotatedCanvasHeight;
       let scale = Math.min(scaleX, scaleY);
-      scale = Math.min(scale, 1); // to prevent enlarging of images that are smaller than the viewPort sizes
       this.scale = `scale(${scale})`;
     } else {
       this.scale = 'scale(1)';

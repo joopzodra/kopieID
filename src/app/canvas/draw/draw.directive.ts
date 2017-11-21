@@ -29,7 +29,7 @@ export class DrawDirective implements AfterViewInit {
   mouseEventCache: MouseEvent;
   relativeWidth: number;
   relativeHeigth: number;
-  lineWidth = 10;
+  penWidth = 10;
 
   ngAfterViewInit() {
     this.tempCanvas = this.temp.nativeElement;
@@ -38,7 +38,7 @@ export class DrawDirective implements AfterViewInit {
     this.viewContext = this.viewCanvas.getContext('2d');
     this.canvasService.canvasSize$.subscribe(sizes => this.onCanvasResize(sizes));
     this.drawService.clearLines$.subscribe(clear => this.clearLines());
-    this.drawService.setBrushWidth$.subscribe(value => this.setBrushWidth(value));
+    this.drawService.setPenWidth$.subscribe(value => this.setPenWidth(value));
   }
 
   startLine(event: MouseEvent) {
@@ -56,7 +56,7 @@ export class DrawDirective implements AfterViewInit {
     this.tempContext.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
     this.tempContext.beginPath();
     this.tempContext.moveTo(this.x0, this.y0);
-    this.tempContext.lineWidth = this.lineWidth;
+    this.tempContext.lineWidth = this.penWidth;
     this.tempContext.lineCap = 'round';
     this.tempContext.lineTo(event.offsetX * this.relativeWidth, event.offsetY * this.relativeHeigth);
     this.tempContext.stroke();
@@ -92,8 +92,8 @@ export class DrawDirective implements AfterViewInit {
     this.inMmeContext.clearRect(0, 0, this.inMemCanvas.width, this.inMemCanvas.height);
   }
 
-  setBrushWidth(value: number) {
-    this.lineWidth = value;
+  setPenWidth(value: number) {
+    this.penWidth = value;
   }
 
 }

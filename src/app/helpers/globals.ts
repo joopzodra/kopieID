@@ -3,8 +3,10 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class Globals {
 
-  maxAppSize = 840;
-  menuSize = 40;
+  appBorderWidth = 4;
+  maxAppSizeGross = 845;
+  menuSize = 45;
+  maxAppSize = this.maxAppSizeGross - 2 * this.appBorderWidth;
 
 /**
  * resizeTimeout is undefined when a new resize event can be handled. During the handling of a resize event, resizeTimeout is the ID-number of a window.setTimeout timer.

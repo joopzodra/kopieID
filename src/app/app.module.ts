@@ -7,11 +7,13 @@ import { MenuComponent } from './menu/menu.component';
 import { DrawDirective } from './canvas/draw/draw.directive'
 import { UploadDirective } from './menu/upload/upload.directive'
 import { ImageDirective } from './canvas/image/image.directive'
+import { WatermarkDirective } from './canvas/watermark/watermark.directive'
 
 import { CanvasService } from './services/canvas.service'
 import { ImageService } from './services/image.service';
-import {DrawService } from './services/draw.service'
-import { Globals } from './helpers/globals'
+import { DrawService } from './services/draw.service'
+import { WatermarkService } from './services/watermark.service'
+import { Globals } from './helpers/globals';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { Globals } from './helpers/globals'
     MenuComponent,
     DrawDirective,
     UploadDirective,
-    ImageDirective
+    ImageDirective,
+    WatermarkDirective
   ],
   imports: [
     BrowserModule
@@ -29,6 +32,7 @@ import { Globals } from './helpers/globals'
     CanvasService,
     ImageService,
     DrawService,
+    WatermarkService,
     Globals
   ],
   bootstrap: [AppComponent]

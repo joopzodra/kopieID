@@ -6,11 +6,18 @@
   margin: 0 auto;
   max-width: $max-app-size;
   height: $max-app-size - $menu-size;
-  background-color: #eee;
-
+  
   jr-menu {
-      height: auto;
-  width: $menu-size;
+    height: auto;
+    width: $menu-size;
+  }
+
+  @media (min-height: $max-app-size) {
+    margin-top: 20px;
+  }
+
+  @media (min-height: $max-app-size) and (min-width: $max-app-size) {
+    border: solid $app-border-width #000;
   }
 }
 

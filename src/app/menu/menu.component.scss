@@ -1,5 +1,4 @@
 #menu {
-  color: red;
   display: flex; 
   flex-flow: column;
 }
@@ -9,11 +8,54 @@
   justify-content: space-around;
 }
 
+#upload-input {
+  display: none;
+}
+
 .w3-modal {
   display: none;
 }
 .w3-modal-content {
   max-width: 600px;
+}
+
+@media (orientation: landscape) {
+  .menu-item {
+    margin: 15px 12px;
+  }
+}
+
+@media (orientation: portrait) {
+  .menu-item {
+    margin: 12px 15px;
+  }  
+}
+
+textarea {
+  width:100%;
+}
+
+h2 {
+  width: 21px;
+  height: 21px;
+  background-size: contain;
+  margin: 0;
+}
+
+#upload-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-picture-12-64.png);
+}
+#rotate-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-redo-2-64.png);
+}
+#draw-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-pencil-10-64.png);  
+}
+#watermark-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-text-3-64.png);  
+}
+#save-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-download-2-64.png);  
 }
 
 /* Slider for lines setting (brush width) */
@@ -35,13 +77,13 @@
   width: 30px; /* Set a specific slider handle width */
   height: 30px; /* Slider handle height */
   border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  background: #27ae60; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 .slider::-moz-range-thumb {
   width: 30px; /* Set a specific slider handle width */
   height: 30px; /* Slider handle height */
   border-radius: 50%;
-  background: #4CAF50; /* Green background */
+  background: #27ae60; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
