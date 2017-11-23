@@ -2,9 +2,19 @@
   display: flex; 
   flex-flow: column;
 }
-
-#upload-input {
-  display: none;
+@media (orientation: landscape) {
+  .menu-item {
+    margin: 15px 12px;
+  }
+}
+@media (orientation: portrait) {
+  #menu {
+    flex-flow: row;
+    justify-content: space-around;
+  }
+  .menu-item {
+    margin: 12px 15px;
+  }  
 }
 
 .w3-modal {
@@ -12,27 +22,6 @@
 }
 .w3-modal-content {
   max-width: 600px;
-}
-
-@media (orientation: landscape) {
-  .menu-item {
-    margin: 15px 12px;
-  }
-}
-
-@media (orientation: portrait) {
-  #menu {
-    flex-flow: row;
-    justify-content: space-around;
-  }
-
-  .menu-item {
-    margin: 12px 15px;
-  }  
-}
-
-textarea {
-  width:100%;
 }
 
 h2 {
@@ -56,6 +45,20 @@ h2 {
 }
 #save-menu h2 {
   background-image: url(/assets/icons-white/iconmonstr-download-2-64.png);  
+}
+
+/* Html upload input cannot be styled with css. Don't display it and style the label instead (by w3 classes) */
+#upload-input {
+  display: none;
+}
+
+textarea {
+  width:100%;
+}
+
+.float-right {
+  float: right;
+  clear: both;
 }
 
 /* Slider for lines setting (brush width) */

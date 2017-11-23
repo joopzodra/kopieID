@@ -5,7 +5,8 @@
   flex-flow: row;
   margin: 0 auto;
   max-width: $max-app-size;
-  height: $max-app-size - $menu-size;
+  max-height: $max-app-size - $menu-size;
+  height: 100vh;
 
   @media (min-height: $max-app-size) {
     margin-top: 20px;
@@ -13,6 +14,7 @@
 
   @media (min-height: $max-app-size) and (min-width: $max-app-size) {
     border: solid $app-border-width #000;
+    border-radius: 4px;
   }
 }
 
@@ -25,7 +27,8 @@ jr-menu {
   #app-container {
     flex-flow:  column;
     max-width: $max-app-size - $menu-size;
-    height: $max-app-size;
+    max-height: $max-app-size;
+    height: 100vh;
 
     jr-menu {
       height: $menu-size;

@@ -8,11 +8,13 @@ import { DrawDirective } from './canvas/draw/draw.directive'
 import { UploadDirective } from './menu/upload/upload.directive'
 import { ImageDirective } from './canvas/image/image.directive'
 import { WatermarkDirective } from './canvas/watermark/watermark.directive'
+import { SaveToFileDirective } from './canvas/save-to-file/save-to-file.directive';
 
 import { CanvasService } from './services/canvas.service'
 import { ImageService } from './services/image.service';
 import { DrawService } from './services/draw.service'
 import { WatermarkService } from './services/watermark.service'
+import { SaveToFileService } from './services/save-to-file.service'
 import { Globals } from './helpers/globals';
 
 @NgModule({
@@ -23,7 +25,8 @@ import { Globals } from './helpers/globals';
     DrawDirective,
     UploadDirective,
     ImageDirective,
-    WatermarkDirective
+    WatermarkDirective,
+    SaveToFileDirective
   ],
   imports: [
     BrowserModule
@@ -33,6 +36,7 @@ import { Globals } from './helpers/globals';
     ImageService,
     DrawService,
     WatermarkService,
+    SaveToFileService,
     Globals
   ],
   bootstrap: [AppComponent]

@@ -22,7 +22,10 @@
         "styles/w3.css",
         "styles/styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/file-saver/FileSaver.js",
+        "../node_modules/canvas-toBlob/canvas-toBlob.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

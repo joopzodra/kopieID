@@ -1,4 +1,4 @@
-import { Directive, ContentChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Directive, ContentChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ImageService } from '../../services/image.service'
 import { CanvasService } from '../../services/canvas.service'
 
