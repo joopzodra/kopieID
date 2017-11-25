@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 
+/** The global values for some app sizes. And a resizeThrottler function for global usage. */
+
 @Injectable()
 export class Globals {
 

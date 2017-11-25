@@ -5,6 +5,8 @@ import { DrawService } from '../services/draw.service'
 import { WatermarkService } from '../services/watermark.service';
 import { SaveToFileService } from '../services/save-to-file.service'
 
+/** The MenuComponent reacts on the user actions in the menu. When the user clicks on a menu item, it shows a modal for further interaction. Only the rotation menu item reacts immediatelely, without modal.  */
+
 @Component({
   selector: 'jr-menu',
   templateUrl: './menu.component.html',
@@ -13,7 +15,9 @@ import { SaveToFileService } from '../services/save-to-file.service'
 export class MenuComponent implements OnInit {
 
   image: HTMLImageElement;
-  watermarkText = 'Kopie voor administratie';
+  watermarkText: string;
+  defaultWatermarkText = 'Kopie voor administratie';
+  dateChecked = true;
 
   constructor(
     private canvasService: CanvasService,
@@ -24,16 +28,23 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.imageService.image$.subscribe(image => this.image = image);
-    this.changeWatermarkText(this.watermarkText, true);
+    this.imageService.image$.subscribe(image => {
+      this.image = image;
+      this.dateChecked = true;
+      this.watermarkText = this.defaultWatermarkText;
+      this.changeWatermarkText(this.defaultWatermarkText, true);
+    });
+  }
+
+  reset() {
+    this.canvasService.resetRotation();
+    this.clearLines();
+    this.changeWatermarkText(this.defaultWatermarkText, true);
+    this.dateChecked = true;
   }
 
   rotateRight() {
     this.canvasService.rotate(90);
-  }
-
-  resetRotation() {
-    this.canvasService.resetRotation();
   }
 
   clearLines() {
@@ -46,6 +57,7 @@ export class MenuComponent implements OnInit {
 
   changeWatermarkText(value: string, checked: boolean) {
     this.watermarkText = value;
+    this.dateChecked = checked;
     this.watermarkService.writeWatermark(value, checked);
   }
 

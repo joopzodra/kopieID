@@ -1,48 +1,65 @@
 import { Directive, ContentChildren, AfterViewInit, QueryList, ElementRef } from '@angular/core';
 import { SaveToFileService } from '../../services/save-to-file.service'
 import { ImageService } from '../../services/image.service'
+import { WatermarkService } from '../../services/watermark.service'
+import { DrawService } from '../../services/draw.service'
+import { CanvasService } from '../../services/canvas.service'
+
 // saveAs is the only function of FileSaver.js. FileSaver.js is added to the scripts list in .angular-cli.json
-declare var saveAs: any;
-// 
-declare var toBlob: any;
+declare const saveAs: any;
 
 @Directive({
   selector: '[jrSaveToFile]'
 })
 export class SaveToFileDirective implements AfterViewInit {
 
-
   @ContentChildren('image, watermark, view') canvasses: QueryList<ElementRef>
+  rotation = 0;
 
-  constructor(private saveToFileService: SaveToFileService, private imageService: ImageService) { }
+  constructor(
+    private saveToFileService: SaveToFileService,
+    private imageService: ImageService,
+    private watermarkService: WatermarkService,
+    private drawService: DrawService,
+    private canvasService: CanvasService
+  ) { }
 
   ngAfterViewInit() {
-    this.saveToFileService.save$.subscribe(save => this.save());
-    console.log(this.canvasses)
+    this.saveToFileService.save$.subscribe(save => this.saveCanvas());
+    this.canvasService.rotate$.subscribe(rotation => this.rotation = rotation);
   }
 
-  save() {
-    this.MergeCanvasses();
-  }
-
-  MergeCanvasses() {
+  saveCanvas() {
     const inMemCanvas = document.createElement('canvas');
     const inMemContext = inMemCanvas.getContext('2d');
     const image = this.imageService.image;
-    inMemCanvas.width = image.width;
-    inMemCanvas.height = image.height;
+    if (this.rotation % 180 !== 0) {
+      inMemCanvas.width = image.height;
+      inMemCanvas.height = image.width;
+    } else {
+      inMemCanvas.width = image.width;
+      inMemCanvas.height = image.height;
+    }
+    const quarterTurns = (this.rotation / 90) % 4;
+    switch (quarterTurns) {
+      case 1:
+        inMemContext.translate(inMemCanvas.width, 0);
+        inMemContext.rotate(90 * Math.PI / 180);
+        break;
+      case 2:
+        inMemContext.translate(inMemCanvas.width / 2, inMemCanvas.height / 2);
+        inMemContext.rotate(180 * Math.PI / 180);
+        inMemContext.translate(-inMemCanvas.width / 2, -inMemCanvas.height / 2);
+        break;
+      case 3:
+        inMemContext.translate(0, inMemCanvas.height);
+        inMemContext.rotate(-90 * Math.PI / 180);
+        break;
+    }
+    inMemContext.drawImage(image, 0, 0);
+    inMemContext.drawImage(this.drawService.shadowDrawCanvas, 0, 0);
+    inMemContext.drawImage(this.watermarkService.shadowWatermarkCanvas, 0, 0);
 
-    const imageCanvas: HTMLCanvasElement = this.canvasses.first.nativeElement;
-    const imageCanvasContext = imageCanvas.getContext('2d')
-    this.canvasses.filter(elRef => elRef.nativeElement.id !== 'image-canvas')
-      .forEach(elRef => imageCanvasContext.drawImage(elRef.nativeElement, 0, 0));
-
-    inMemContext.drawImage(imageCanvas, 0, 0, inMemCanvas.width, inMemCanvas.height);
-    inMemCanvas.toBlob(blob => saveAs(blob, "kopie-van-ID.jpg"));
-    //const dataUrl = inMemCanvas.toDataURL("image/jpeg", 0.6);
+    inMemCanvas.toBlob(blob => saveAs(blob, 'kopie-van-ID.jpg'), 'image/jpeg', 0.8);
   }
-
 }
-
-
-

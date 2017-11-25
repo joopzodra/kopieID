@@ -2,7 +2,7 @@ import { Directive, ContentChild, ElementRef, AfterViewInit } from '@angular/cor
 import { ImageService } from '../../services/image.service'
 import { CanvasService } from '../../services/canvas.service'
 
-/* ImageDirective computes the right size for the image, given the maximum size for the canvas. Then it puts the image on its canvas and sends the size of this canvas to the CanvasService. The CanvasService sends this size to subscribers so that canvasses can be adjusted to this size. */
+/** ImageDirective computes the right size for the image, given the maximum size for the canvas. Then it puts the image on its canvas and sends the size of this canvas to the CanvasService. The CanvasService sends this size to subscribers so that canvasses can be adjusted to this size. */
 
 @Directive({
   selector: '[jrImage]'

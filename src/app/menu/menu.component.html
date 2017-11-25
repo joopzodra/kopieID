@@ -12,7 +12,7 @@
           <p>Laad een foto van je ID.</p>
           <div id="fileUpload" class=" w3-padding-16">
             <label for="upload-input" id="upload-label" class="w3-button w3-theme">Foto kiezen ...</label>
-            <input id="upload-input" type="file" size="150" accept='image/*' (change)="resetRotation();upload.onChange($event);uploadModal.style.display='none'">
+            <input id="upload-input" #uploadInput type="file" size="150" accept='image/*' (click)="uploadInput.value=''" (change)="reset();upload.onChange($event);uploadModal.style.display='none'">
           </div>
         </div>
       </div>
@@ -54,11 +54,11 @@
           <p>Voeg korte tekst voor watermerk toe.</p>
           <textarea #input [attr.rows]="2" [value]="watermarkText" maxlength="50"></textarea>
           <div>
-            <input #checkbox class="w3-check" type="checkbox" checked="checked">
+            <input #checkbox class="w3-check" type="checkbox" [checked]="dateChecked">
             <label>Datum toevoegen</label>
           </div>
           <button class="w3-button w3-section w3-theme-l3" (click)="input.value=''">Wis tekst</button>
-          <button (click)="watermarkModal.style.display='none';$event.stopPropagation();changeWatermarkText(input.value, checkbox.checked)" class="w3-button w3-section w3-theme float-right">Opslaan</button>
+          <button (click)="changeWatermarkText(input.value, checkbox.checked);watermarkModal.style.display='none';$event.stopPropagation();" class="w3-button w3-section w3-theme float-right">Opslaan</button>
         </div>
       </div>
     </div>

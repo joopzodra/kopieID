@@ -1,19 +1,18 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription'
 import { CanvasService } from '../services/canvas.service'
 import { Globals } from '../helpers/globals'
 import { ImageService} from '../services/image.service'
 
-/* CanvasComponent contains in its template all the canvasses. It has subsciptions to the CanvasService to adjust the canvasses and/or the divs around the canvasses to rotation and resizing. */
+/** CanvasComponent contains in its template all the canvasses. It has subsciptions to the CanvasService to adjust the canvasses and/or the divs around the canvasses to rotation and resizing. */
 
 @Component({
   selector: 'jr-canvas',
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.scss']
 })
-export class CanvasComponent implements OnInit, OnChanges {
+export class CanvasComponent implements OnInit {
 
-  showDraw = true;
   rotation = 'rotate(0deg)';
   canvasWidth = 0;
   canvasHeight = 0;
@@ -42,10 +41,6 @@ export class CanvasComponent implements OnInit, OnChanges {
       this.setTranformation(this.rotation);
     });
     this.imageService.image$.subscribe(image => this.image = image);
-  }
-
-  ngOnChanges() {
-    this.setTranformation(this.rotation);
   }
 
   setScale(rotation: number) {
