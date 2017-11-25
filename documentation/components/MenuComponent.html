@@ -90,9 +90,6 @@
                                 <li class="link">
                                     <a href="../components/MenuComponent.html"  data-type="entity-link" class="active" >MenuComponent</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -108,19 +105,19 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                </li>
-                                <li class="link">
                                     <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                    <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -157,10 +154,19 @@
                                     <a href="../injectables/CanvasService.html" >CanvasService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/DrawService.html" >DrawService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/Globals.html" >Globals</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ImageService.html" >ImageService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                 </li>
                         </ul>
                     </li>
@@ -277,9 +283,6 @@
                                        <li class="link">
                                            <a href="../components/MenuComponent.html"  data-type="entity-link" class="active" >MenuComponent</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -295,19 +298,19 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                           <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -344,10 +347,19 @@
                                            <a href="../injectables/CanvasService.html" >CanvasService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/DrawService.html" >DrawService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/Globals.html" >Globals</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ImageService.html" >ImageService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                        </li>
                                </ul>
                            </li>
@@ -424,8 +436,21 @@
     <code>src/app/menu/menu.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The MenuComponent reacts on the user actions in the menu. When the user clicks on a menu item, it shows a modal for further interaction. Only the rotation menu item reacts immediatelely, without modal.  </p>
+
+    </p>
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -472,14 +497,55 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
+                        <h6><b>Properties</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#orientation">orientation</a>
+                                 <a href="#dateChecked">dateChecked</a>
+                            </li>
+                            <li>
+                                 <a href="#defaultWatermarkText">defaultWatermarkText</a>
+                            </li>
+                            <li>
+                                 <a href="#image">image</a>
+                            </li>
+                            <li>
+                                 <a href="#watermarkText">watermarkText</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                 <a href="#changeWatermarkText">changeWatermarkText</a>
+                            </li>
+                            <li>
+                                 <a href="#clearLines">clearLines</a>
+                            </li>
+                            <li>
+                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                 <a href="#reset">reset</a>
+                            </li>
+                            <li>
+                                 <a href="#rotateRight">rotateRight</a>
+                            </li>
+                            <li>
+                                 <a href="#save">save</a>
+                            </li>
+                            <li>
+                                 <a href="#setPenWidth">setPenWidth</a>
                             </li>
                         </ul>
                     </td>
@@ -488,28 +554,85 @@
         </table>
     </section>
 
-
     <section>
-        <h3 id="inputs">Inputs</h3>
+        <h3 id="constructor">Constructor</h3>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
-                        <td class="col-md-2">
-                            <a name="orientation"></a>
-                            <code>orientation</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                              </p>
+                        <td class="col-md-4">
+                            <code>constructor(canvasService: <a href="../injectables/CanvasService.html">CanvasService</a>, imageService: <a href="../injectables/ImageService.html">ImageService</a>, drawService: <a href="../injectables/DrawService.html">DrawService</a>, watermarkService: <a href="../injectables/WatermarkService.html">WatermarkService</a>, saveToFileService: <a href="../injectables/SaveToFileService.html">SaveToFileService</a>)</code>
                         </td>
                     </tr>
                             <tr>
-                                <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/menu/menu.component.ts:10</a></div>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/menu/menu.component.ts:20</a></div>
                                 </td>
                             </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>canvasService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/CanvasService.html" target="_self" >CanvasService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>imageService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/ImageService.html" target="_self" >ImageService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>drawService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/DrawService.html" target="_self" >DrawService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>watermarkService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/WatermarkService.html" target="_self" >WatermarkService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>saveToFileService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/SaveToFileService.html" target="_self" >SaveToFileService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -518,79 +641,581 @@
 
 
 
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="changeWatermarkText"></a>
+                            <span class="name"><b> changeWatermarkText</b><a href="#changeWatermarkText"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>changeWatermarkText(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, checked: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/menu/menu.component.ts:58</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>value</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>checked</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="clearLines"></a>
+                            <span class="name"><b> clearLines</b><a href="#clearLines"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>clearLines()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/menu/menu.component.ts:50</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="ngOnInit"></a>
+                            <span class="name"><b> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/menu/menu.component.ts:30</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="reset"></a>
+                            <span class="name"><b> reset</b><a href="#reset"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>reset()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/menu/menu.component.ts:39</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="rotateRight"></a>
+                            <span class="name"><b> rotateRight</b><a href="#rotateRight"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>rotateRight()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/menu/menu.component.ts:46</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="save"></a>
+                            <span class="name"><b> save</b><a href="#save"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>save()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/menu/menu.component.ts:64</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="setPenWidth"></a>
+                            <span class="name"><b> setPenWidth</b><a href="#setPenWidth"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>setPenWidth(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/menu/menu.component.ts:54</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>value</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="dateChecked"></a>
+                            <span class="name"><b> dateChecked</b><a href="#dateChecked"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>dateChecked:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>true</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/menu/menu.component.ts:20</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="defaultWatermarkText"></a>
+                            <span class="name"><b> defaultWatermarkText</b><a href="#defaultWatermarkText"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>defaultWatermarkText:     <code></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>Kopie voor administratie</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/menu/menu.component.ts:19</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="image"></a>
+                            <span class="name"><b> image</b><a href="#image"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>image:     <code>HTMLImageElement</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>HTMLImageElement</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/menu/menu.component.ts:17</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="watermarkText"></a>
+                            <span class="name"><b> watermarkText</b><a href="#watermarkText"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>watermarkText:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/menu/menu.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+    </section>
 
 </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CanvasService } from &#x27;../services/canvas.service&#x27;
+import { ImageService } from &#x27;../services/image.service&#x27;
+import { DrawService } from &#x27;../services/draw.service&#x27;
+import { WatermarkService } from &#x27;../services/watermark.service&#x27;;
+import { SaveToFileService } from &#x27;../services/save-to-file.service&#x27;
+
+/** The MenuComponent reacts on the user actions in the menu. When the user clicks on a menu item, it shows a modal for further interaction. Only the rotation menu item reacts immediatelely, without modal.  */
 
 @Component({
   selector: &#x27;jr-menu&#x27;,
   templateUrl: &#x27;./menu.component.html&#x27;,
   styleUrls: [&#x27;./menu.component.scss&#x27;]
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
 
-  @Input(&#x27;orientation&#x27;) orientation: string;
+  image: HTMLImageElement;
+  watermarkText: string;
+  defaultWatermarkText &#x3D; &#x27;Kopie voor administratie&#x27;;
+  dateChecked &#x3D; true;
 
+  constructor(
+    private canvasService: CanvasService,
+    private imageService: ImageService,
+    private drawService: DrawService,
+    private watermarkService: WatermarkService,
+    private saveToFileService: SaveToFileService
+  ) { }
+
+  ngOnInit() {
+    this.imageService.image$.subscribe(image &#x3D;&gt; { console.log(&#x27;next&#x27;)
+      this.image &#x3D; image;
+      this.dateChecked &#x3D; true;
+      this.watermarkText &#x3D; this.defaultWatermarkText;
+      this.changeWatermarkText(this.defaultWatermarkText, true);
+    });
+  }
+
+  reset() {
+    this.canvasService.resetRotation();
+    this.clearLines();
+    this.changeWatermarkText(this.defaultWatermarkText, true);
+    this.dateChecked &#x3D; true;
+  }
+
+  rotateRight() {
+    this.canvasService.rotate(90);
+  }
+
+  clearLines() {
+    this.drawService.clearLines();
+  }
+
+  setPenWidth(value: number) {
+    this.drawService.setPenWidth(value);
+  }
+
+  changeWatermarkText(value: string, checked: boolean) {
+    this.watermarkText &#x3D; value;
+    this.dateChecked &#x3D; checked;
+    this.watermarkService.writeWatermark(value, checked);
+  }
+
+  save() {
+    this.saveToFileService.save$.next(true);
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;menu&quot; jrAccordion #firstAccordion&#x3D;&quot;accordion&quot; onlyOneOpen&#x3D;&quot;true&quot; [ngClass]&#x3D;&quot;orientation&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;menu&quot;&gt;
 
-  &lt;jr-panel title&#x3D;&quot;U&quot; jrUpload #upload&#x3D;&quot;upload&quot;&gt;
-    &lt;div id&#x3D;&quot;upload&quot;&gt;
-      &lt;p&gt;Upload een afbeelding (jpg, png) of pdf van je ID naar de browser.&lt;/p&gt;
-      &lt;p class&#x3D;&quot;explanation&quot;&gt;Het bestand dat je straks downloadt heeft  dezelfde afmetingen als het geuploade bestand.&lt;/p&gt;
-      &lt;div id&#x3D;&quot;fileUpload&quot;&gt;
-        &lt;label for&#x3D;&quot;upload-button&quot;&gt;Bestand kiezen ...&lt;/label&gt;
-        &lt;input id&#x3D;&quot;upload-button&quot; type&#x3D;&quot;file&quot; accept&#x3D;&#x27;image/*,application/pdf&#x27; (change)&#x3D;&quot;upload.onChange($event)&quot;&gt;
+  &lt;div id&#x3D;&quot;upload-menu&quot; class&#x3D;&quot;menu-item&quot; jrUpload #upload&#x3D;&quot;upload&quot; (click)&#x3D;&quot;uploadModal.style.display&#x3D;&#x27;block&#x27;&quot;&gt;
+    &lt;h2&gt;&lt;/h2&gt;
+    &lt;div #uploadModal class&#x3D;&quot;w3-modal&quot; [style.display]&#x3D;&quot;image ? &#x27;none&#x27; : &#x27;block&#x27;&quot;&gt;
+      &lt;div class&#x3D;&quot;w3-modal-content w3-text-black&quot;&gt;
+        &lt;header class&#x3D;&quot;w3-container w3-theme-d4&quot;&gt;
+          &lt;span (click)&#x3D;&quot;uploadModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation()&quot; class&#x3D;&quot;w3-button w3-display-topright&quot;&gt;&amp;times;&lt;/span&gt;        
+          &lt;h3&gt;Foto laden&lt;/h3&gt;
+        &lt;/header&gt;
+        &lt;div class&#x3D;&quot;w3-container w3-theme-l4&quot;&gt;
+          &lt;p&gt;Laad een foto van je ID.&lt;/p&gt;
+          &lt;div id&#x3D;&quot;fileUpload&quot; class&#x3D;&quot; w3-padding-16&quot;&gt;
+            &lt;label for&#x3D;&quot;upload-input&quot; id&#x3D;&quot;upload-label&quot; class&#x3D;&quot;w3-button w3-theme&quot;&gt;Foto kiezen ...&lt;/label&gt;
+            &lt;input id&#x3D;&quot;upload-input&quot; #uploadInput type&#x3D;&quot;file&quot; size&#x3D;&quot;150&quot; accept&#x3D;&#x27;image/*&#x27; (click)&#x3D;&quot;uploadInput.value&#x3D;&#x27;&#x27;&quot; (change)&#x3D;&quot;reset();upload.onChange($event);uploadModal.style.display&#x3D;&#x27;none&#x27;&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/jr-panel&gt;
-
-&lt;!--   &lt;jr-panel title&#x3D;&quot;R&quot; jrRotate #rotate&#x3D;&quot;rotate&quot;&gt;
-    &lt;div id&#x3D;&quot;rotate&quot;&gt;
-      &lt;p&gt;Eventueel kun je de afbeelding roteren.&lt;/p&gt;
-      &lt;p class&#x3D;&quot;explanation&quot;&gt;Het bestand dat je straks downloadt is niet geroteerd. Roteren is alleen om het bewerken in deze app te vergemakkelijken.&lt;/p&gt;
-      &lt;button (click)&#x3D;&quot;rotate.rotateLeft()&quot;&gt;Roteer linksom&lt;/button&gt;
-      &lt;button (click)&#x3D;&quot;rotate.rotateRight()&quot;&gt;Roteer rechtsom&lt;/button&gt;
-    &lt;/div&gt;  
-  &lt;/jr-panel&gt; --&gt;
-
-  &lt;div jrRotate #rotate&#x3D;&quot;rotate&quot; (click)&#x3D;&quot;rotate.rotateLeft()&quot;&gt;
-    &lt;h2&gt;R&lt;/h2&gt;
   &lt;/div&gt;
 
-  &lt;jr-panel title&#x3D;&quot;V&quot;&gt;
-    &lt;div id&#x3D;&quot;draw&quot;&gt;
-      &lt;p&gt;Trek met de muis een streep door je burger-servicenummer. Je moet de twee getypte, paginabrede regels onderaan je ID hebben. (In oudere paspoorten staat het BSN ook nog in rechts in het midden.)&lt;/p&gt;
-      &lt;button (click)&#x3D;&quot;clearDrawing()&quot;&gt;Wis lijnen &lt;/button&gt;
-      &lt;label for&#x3D;&quot;brush-width&quot;&gt;Pas lijndikte aan:&lt;/label&gt;
-      &lt;input id&#x3D;&quot;brush-width&quot; #brushWidthInput type&#x3D;&quot;range&quot; min&#x3D;&quot;4&quot; max&#x3D;&quot;25&quot; value&#x3D;&quot;10&quot; (change)&#x3D;&quot;setBrushWidth(brushWidthInput.value)&quot;&gt;
-    &lt;/div&gt;
-  &lt;/jr-panel&gt;
+  &lt;div id&#x3D;&quot;rotate-menu&quot; class&#x3D;&quot;menu-item&quot; (click)&#x3D;&quot;rotateRight()&quot; *ngIf&#x3D;&quot;image&quot;&gt;
+    &lt;h2&gt;&lt;/h2&gt;
+  &lt;/div&gt;
 
-  &lt;jr-panel title&#x3D;&quot;W&quot;&gt;
-    &lt;div id&#x3D;&quot;watermark&quot;&gt;
-      &lt;p&gt;In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.&lt;/p&gt;
-      &lt;p class&#x3D;&quot;toelichting&quot;&gt;Bijvoorbeeld: &#x27;Kopie voor verhuurbedrijf Jansen &amp; Janssens, bestemd als identificatie bij de huur van een feesttent.&#x27;&lt;/p&gt;
-      &lt;p&gt;Om het gebied te verkleinen waar de tekst overheen komt: sleep met de muis.&lt;/p&gt;
-      &lt;textarea class&#x3D;&quot;topcoat-textarea&quot; [attr.rows]&#x3D;&quot;4&quot; [attr.cols]&#x3D;&quot;28&quot; #input [value]&#x3D;&quot;inputvalue&quot;  (keyup)&#x3D;&quot;changeText(input.value)&quot; placeholder&#x3D;&quot;Tik je watermerk-tekst ...&quot;&gt;&lt;/textarea&gt;
-      &lt;input type&#x3D;&quot;reset&quot; (click)&#x3D;&quot;clearText()&quot; value&#x3D;&quot;Wis tekst&quot;&gt;
-      &lt;button (click)&#x3D;&quot;clearSelectedArea()&quot;&gt;Wis geselecteerde gebied&lt;/button&gt;
+  &lt;div id&#x3D;&quot;draw-menu&quot; class&#x3D;&quot;menu-item&quot; (click)&#x3D;&quot;drawModal.style.display&#x3D;&#x27;block&#x27;&quot; *ngIf&#x3D;&quot;image&quot;&gt;
+    &lt;h2&gt;&lt;/h2&gt;
+    &lt;div #drawModal class&#x3D;&quot;w3-modal&quot;&gt;
+      &lt;div class&#x3D;&quot;w3-modal-content w3-text-black&quot;&gt;
+        &lt;header class&#x3D;&quot;w3-container w3-theme-d4&quot;&gt;
+          &lt;span (click)&#x3D;&quot;drawModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation()&quot; class&#x3D;&quot;w3-button w3-display-topright&quot;&gt;&amp;times;&lt;/span&gt;        
+          &lt;h3&gt;Lijnen&lt;/h3&gt;
+        &lt;/header&gt;
+        &lt;div class&#x3D;&quot;w3-container w3-theme-l4&quot;&gt;
+          &lt;div id&#x3D;&quot;slidercontainer&quot; class&#x3D;&quot;w3-margin&quot;&gt;
+            &lt;label for&#x3D;&quot;pen-width&quot; class&#x3D;&quot;w3-padding-24&quot;&gt;Pas lijndikte aan: {{penWidthInput.value}}&lt;/label&gt;        
+            &lt;input id&#x3D;&quot;pen-width&quot; #penWidthInput type&#x3D;&quot;range&quot; min&#x3D;&quot;4&quot; max&#x3D;&quot;25&quot; value&#x3D;&quot;10&quot; (input)&#x3D;&quot;setPenWidth(penWidthInput.value)&quot; (change)&#x3D;&quot;setPenWidth(penWidthInput.value)&quot;class&#x3D;&quot;slider&quot;&gt;
+          &lt;/div&gt;
+          &lt;button (click)&#x3D;&quot;clearLines()&quot; class&#x3D;&quot;w3-margin w3-button w3-theme&quot;&gt;Wis de lijnen &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/jr-panel&gt;
+  &lt;/div&gt;
 
-  &lt;jr-panel title&#x3D;&quot;D&quot;&gt;
-    &lt;div id&#x3D;&quot;download&quot;&gt;
-      &lt;p&gt;Download je bestand. En klaar!&lt;/p&gt;
-      &lt;button (click)&#x3D;&quot;download()&quot; [disabled]&#x3D;&quot;!file&quot;&gt;Download&lt;/button&gt;
+  &lt;div id&#x3D;&quot;watermark-menu&quot; class&#x3D;&quot;menu-item&quot; (click)&#x3D;&quot;watermarkModal.style.display&#x3D;&#x27;block&#x27;&quot; *ngIf&#x3D;&quot;image&quot;&gt;
+    &lt;h2&gt;&lt;/h2&gt;
+    &lt;div #watermarkModal class&#x3D;&quot;w3-modal&quot;&gt;
+      &lt;div class&#x3D;&quot;w3-modal-content w3-text-black&quot;&gt;
+        &lt;header class&#x3D;&quot;w3-container w3-theme-d4&quot;&gt;
+          &lt;span (click)&#x3D;&quot;watermarkModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation();&quot; class&#x3D;&quot;w3-button w3-display-topright&quot;&gt;&amp;times;&lt;/span&gt;        
+          &lt;h3&gt;Watermerk&lt;/h3&gt;
+        &lt;/header&gt;
+        &lt;div class&#x3D;&quot;w3-container w3-theme-l4&quot;&gt;
+          &lt;p&gt;Voeg korte tekst voor watermerk toe.&lt;/p&gt;
+          &lt;textarea #input [attr.rows]&#x3D;&quot;2&quot; [value]&#x3D;&quot;watermarkText&quot; maxlength&#x3D;&quot;50&quot;&gt;&lt;/textarea&gt;
+          &lt;div&gt;
+            &lt;input #checkbox class&#x3D;&quot;w3-check&quot; type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;dateChecked&quot;&gt;
+            &lt;label&gt;Datum toevoegen&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;button class&#x3D;&quot;w3-button w3-section w3-theme-l3&quot; (click)&#x3D;&quot;input.value&#x3D;&#x27;&#x27;&quot;&gt;Wis tekst&lt;/button&gt;
+          &lt;button (click)&#x3D;&quot;changeWatermarkText(input.value, checkbox.checked);watermarkModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation();&quot; class&#x3D;&quot;w3-button w3-section w3-theme float-right&quot;&gt;Opslaan&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/jr-panel&gt;
+  &lt;/div&gt;
+
+  &lt;div id&#x3D;&quot;save-menu&quot; class&#x3D;&quot;menu-item&quot; (click)&#x3D;&quot;saveModal.style.display&#x3D;&#x27;block&#x27;&quot; *ngIf&#x3D;&quot;image&quot;&gt;
+    &lt;h2&gt;&lt;/h2&gt; 
+    &lt;div #saveModal class&#x3D;&quot;w3-modal&quot;&gt;
+      &lt;div class&#x3D;&quot;w3-modal-content w3-text-black&quot;&gt;
+        &lt;header class&#x3D;&quot;w3-container w3-theme-d4&quot;&gt;
+          &lt;span (click)&#x3D;&quot;saveModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation()&quot; class&#x3D;&quot;w3-button w3-display-topright&quot;&gt;&amp;times;&lt;/span&gt;        
+          &lt;h3&gt;Opslaan&lt;/h3&gt;
+        &lt;/header&gt;
+        &lt;div class&#x3D;&quot;w3-container w3-theme-l4&quot;&gt;
+          &lt;p&gt;Sla je ID kopie op.&lt;/p&gt;
+          &lt;button class&#x3D;&quot;w3-button w3-section w3-theme&quot; (click)&#x3D;&quot;save();saveModal.style.display&#x3D;&#x27;none&#x27;;$event.stopPropagation()&quot;&gt;Sla op&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
 &lt;/div&gt;</code></pre>
     </div>
@@ -618,9 +1243,9 @@ export class MenuComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div id="menu" jrAccordion #firstAccordion="accordion" onlyOneOpen="true" [ngClass]="orientation">  <jr-panel title="U" jrUpload #upload="upload">    <div id="upload">      <p>Upload een afbeelding (jpg, png) of pdf van je ID naar de browser.</p>      <p class="explanation">Het bestand dat je straks downloadt heeft  dezelfde afmetingen als het geuploade bestand.</p>      <div id="fileUpload">        <label for="upload-button">Bestand kiezen ...</label>        <input id="upload-button" type="file" accept=\'image/*,application/pdf\' (change)="upload.onChange($event)">      </div>    </div>  </jr-panel><!--   <jr-panel title="R" jrRotate #rotate="rotate">    <div id="rotate">      <p>Eventueel kun je de afbeelding roteren.</p>      <p class="explanation">Het bestand dat je straks downloadt is niet geroteerd. Roteren is alleen om het bewerken in deze app te vergemakkelijken.</p>      <button (click)="rotate.rotateLeft()">Roteer linksom</button>      <button (click)="rotate.rotateRight()">Roteer rechtsom</button>    </div>    </jr-panel> -->  <div jrRotate #rotate="rotate" (click)="rotate.rotateLeft()">    <h2>R</h2>  </div>  <jr-panel title="V">    <div id="draw">      <p>Trek met de muis een streep door je burger-servicenummer. Je moet de twee getypte, paginabrede regels onderaan je ID hebben. (In oudere paspoorten staat het BSN ook nog in rechts in het midden.)</p>      <button (click)="clearDrawing()">Wis lijnen </button>      <label for="brush-width">Pas lijndikte aan:</label>      <input id="brush-width" #brushWidthInput type="range" min="4" max="25" value="10" (change)="setBrushWidth(brushWidthInput.value)">    </div>  </jr-panel>  <jr-panel title="W">    <div id="watermark">      <p>In het watermerk kun je aangeven voor wie de kopie van je ID bestemd is en waarvoor de kopie nodig is. De datum wordt automatisch toegevoegd.</p>      <p class="toelichting">Bijvoorbeeld: \'Kopie voor verhuurbedrijf Jansen & Janssens, bestemd als identificatie bij de huur van een feesttent.\'</p>      <p>Om het gebied te verkleinen waar de tekst overheen komt: sleep met de muis.</p>      <textarea class="topcoat-textarea" [attr.rows]="4" [attr.cols]="28" #input [value]="inputvalue"  (keyup)="changeText(input.value)" placeholder="Tik je watermerk-tekst ..."></textarea>      <input type="reset" (click)="clearText()" value="Wis tekst">      <button (click)="clearSelectedArea()">Wis geselecteerde gebied</button>    </div>  </jr-panel>  <jr-panel title="D">    <div id="download">      <p>Download je bestand. En klaar!</p>      <button (click)="download()" [disabled]="!file">Download</button>    </div>  </jr-panel></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'jr-root'},{'name': 'CanvasComponent', 'selector': 'jr-canvas'},{'name': 'MenuComponent', 'selector': 'jr-menu'},{'name': 'PanelComponent', 'selector': 'jr-panel'}];
-    var DIRECTIVES = [{'name': 'AccordionDirective', 'selector': '[jrAccordion]'},{'name': 'DrawDirective', 'selector': '[jrDraw]'},{'name': 'ImageDirective', 'selector': '[jrImage]'},{'name': 'RotateDirective', 'selector': '[jrRotate]'},{'name': 'UploadDirective', 'selector': '[jrUpload]'}];
+        var COMPONENT_TEMPLATE = '<div><div id="menu">  <div id="upload-menu" class="menu-item" jrUpload #upload="upload" (click)="uploadModal.style.display=\'block\'">    <h2></h2>    <div #uploadModal class="w3-modal" [style.display]="image ? \'none\' : \'block\'">      <div class="w3-modal-content w3-text-black">        <header class="w3-container w3-theme-d4">          <span (click)="uploadModal.style.display=\'none\';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>                  <h3>Foto laden</h3>        </header>        <div class="w3-container w3-theme-l4">          <p>Laad een foto van je ID.</p>          <div id="fileUpload" class=" w3-padding-16">            <label for="upload-input" id="upload-label" class="w3-button w3-theme">Foto kiezen ...</label>            <input id="upload-input" #uploadInput type="file" size="150" accept=\'image/*\' (click)="uploadInput.value=\'\'" (change)="reset();upload.onChange($event);uploadModal.style.display=\'none\'">          </div>        </div>      </div>    </div>  </div>  <div id="rotate-menu" class="menu-item" (click)="rotateRight()" *ngIf="image">    <h2></h2>  </div>  <div id="draw-menu" class="menu-item" (click)="drawModal.style.display=\'block\'" *ngIf="image">    <h2></h2>    <div #drawModal class="w3-modal">      <div class="w3-modal-content w3-text-black">        <header class="w3-container w3-theme-d4">          <span (click)="drawModal.style.display=\'none\';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>                  <h3>Lijnen</h3>        </header>        <div class="w3-container w3-theme-l4">          <div id="slidercontainer" class="w3-margin">            <label for="pen-width" class="w3-padding-24">Pas lijndikte aan: {{penWidthInput.value}}</label>                    <input id="pen-width" #penWidthInput type="range" min="4" max="25" value="10" (input)="setPenWidth(penWidthInput.value)" (change)="setPenWidth(penWidthInput.value)"class="slider">          </div>          <button (click)="clearLines()" class="w3-margin w3-button w3-theme">Wis de lijnen </button>        </div>      </div>    </div>  </div>  <div id="watermark-menu" class="menu-item" (click)="watermarkModal.style.display=\'block\'" *ngIf="image">    <h2></h2>    <div #watermarkModal class="w3-modal">      <div class="w3-modal-content w3-text-black">        <header class="w3-container w3-theme-d4">          <span (click)="watermarkModal.style.display=\'none\';$event.stopPropagation();" class="w3-button w3-display-topright">&times;</span>                  <h3>Watermerk</h3>        </header>        <div class="w3-container w3-theme-l4">          <p>Voeg korte tekst voor watermerk toe.</p>          <textarea #input [attr.rows]="2" [value]="watermarkText" maxlength="50"></textarea>          <div>            <input #checkbox class="w3-check" type="checkbox" [checked]="dateChecked">            <label>Datum toevoegen</label>          </div>          <button class="w3-button w3-section w3-theme-l3" (click)="input.value=\'\'">Wis tekst</button>          <button (click)="changeWatermarkText(input.value, checkbox.checked);watermarkModal.style.display=\'none\';$event.stopPropagation();" class="w3-button w3-section w3-theme float-right">Opslaan</button>        </div>      </div>    </div>  </div>  <div id="save-menu" class="menu-item" (click)="saveModal.style.display=\'block\'" *ngIf="image">    <h2></h2>     <div #saveModal class="w3-modal">      <div class="w3-modal-content w3-text-black">        <header class="w3-container w3-theme-d4">          <span (click)="saveModal.style.display=\'none\';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>                  <h3>Opslaan</h3>        </header>        <div class="w3-container w3-theme-l4">          <p>Sla je ID kopie op.</p>          <button class="w3-button w3-section w3-theme" (click)="save();saveModal.style.display=\'none\';$event.stopPropagation()">Sla op</button>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'jr-root'},{'name': 'CanvasComponent', 'selector': 'jr-canvas'},{'name': 'MenuComponent', 'selector': 'jr-menu'}];
+    var DIRECTIVES = [{'name': 'DrawDirective', 'selector': '[jrDraw]'},{'name': 'ImageDirective', 'selector': '[jrImage]'},{'name': 'SaveToFileDirective', 'selector': '[jrSaveToFile]'},{'name': 'UploadDirective', 'selector': '[jrUpload]'},{'name': 'WatermarkDirective', 'selector': '[jrWatermark]'}];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
 </script>
 <script src="../js/tree.js"></script>

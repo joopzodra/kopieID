@@ -111,7 +111,7 @@
                                     <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
+                                    <a href="../directives/SaveToFileDirective.html"  data-type="entity-link" class="active" >SaveToFileDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/UploadDirective.html" >UploadDirective</a>
@@ -151,7 +151,7 @@
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
-                                    <a href="../injectables/CanvasService.html"  data-type="entity-link" class="active" >CanvasService</a>
+                                    <a href="../injectables/CanvasService.html" >CanvasService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/DrawService.html" >DrawService</a>
@@ -304,7 +304,7 @@
                                            <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
+                                           <a href="../directives/SaveToFileDirective.html"  data-type="entity-link" class="active" >SaveToFileDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/UploadDirective.html" >UploadDirective</a>
@@ -344,7 +344,7 @@
                                        id="injectables-links"
                    >
                                        <li class="link">
-                                           <a href="../injectables/CanvasService.html"  data-type="entity-link" class="active" >CanvasService</a>
+                                           <a href="../injectables/CanvasService.html" >CanvasService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/DrawService.html" >DrawService</a>
@@ -400,17 +400,16 @@
                    
                    </nav>
                </div>
-               <div class="content injectable">
+               <div class="content directive">
                    <div class="content-data">
 
 
 
 
 
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>CanvasService</li>
+  <li>Directives</li>
+  <li>SaveToFileDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -422,6 +421,7 @@
     <li>
         <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
     </li>
+
 </ul>
 
 <div class="tab-content">
@@ -430,17 +430,31 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/services/canvas.service.ts</code>
+            <code>src/app/canvas/save-to-file/save-to-file.directive.ts</code>
         </p>
 
+
             <p class="comment">
-                <h3>Description</h3>
+                <h3>Implements</h3>
             </p>
             <p class="comment">
-                <p>CanvasService provides values for canvas width and height and rotation. The service reacts on changes in uploaded image and changes in viewport size and orientation.  </p>
-
+                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
             </p>
 
+
+        <section>
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover">
+                <tbody>
+
+                    <tr>
+                        <td class="col-md-3">selector</td>
+                        <td class="col-md-9"><code>[jrSaveToFile]</code></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
 
             <section>
                 <h3 id="index">Index</h3>
@@ -455,16 +469,7 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                         <a href="#canvasSize$">canvasSize$</a>
-                                    </li>
-                                    <li>
-                                         <a href="#maxSizeCanvas$">maxSizeCanvas$</a>
-                                    </li>
-                                    <li>
-                                         <a href="#rotate$">rotate$</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Private</span> <a href="#rotation">rotation</a>
+                                         <a href="#canvasses">canvasses</a>
                                     </li>
                                 </ul>
                             </td>
@@ -478,16 +483,13 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                         <a href="#maxSizeCanvas">maxSizeCanvas</a>
+                                         <a href="#MergeCanvasses">MergeCanvasses</a>
                                     </li>
                                     <li>
-                                         <a href="#resetRotation">resetRotation</a>
+                                         <a href="#ngAfterViewInit">ngAfterViewInit</a>
                                     </li>
                                     <li>
-                                         <a href="#rotate">rotate</a>
-                                    </li>
-                                    <li>
-                                         <a href="#setCanvasSize">setCanvasSize</a>
+                                         <a href="#save">save</a>
                                     </li>
                                 </ul>
                             </td>
@@ -502,12 +504,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(globals: <a href="../injectables/Globals.html">Globals</a>)</code>
+                                    <code>constructor(saveToFileService: <a href="../injectables/SaveToFileService.html">SaveToFileService</a>, imageService: <a href="../injectables/ImageService.html">ImageService</a>, watermarkService: <a href="../injectables/WatermarkService.html">WatermarkService</a>, drawService: <a href="../injectables/DrawService.html">DrawService</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/canvas.service.ts:9</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:16</a></div>
                                         </td>
                                     </tr>
             
@@ -526,9 +528,36 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>globals</td>
+                                                              <td>saveToFileService</td>
                                                               <td>
-                                                                        <code><a href="../injectables/Globals.html" target="_self" >Globals</a></code>
+                                                                        <code><a href="../injectables/SaveToFileService.html" target="_self" >SaveToFileService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>imageService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/ImageService.html" target="_self" >ImageService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>watermarkService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/WatermarkService.html" target="_self" >WatermarkService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>drawService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/DrawService.html" target="_self" >DrawService</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -543,6 +572,10 @@
                     </table>
             </section>
 
+
+
+
+
             <section>
                 
                     <h3 id="methods">
@@ -552,20 +585,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="maxSizeCanvas"></a>
-                                    <span class="name"><b> maxSizeCanvas</b><a href="#maxSizeCanvas"><span class="fa fa-link"></span></a></span>
+                                    <a name="MergeCanvasses"></a>
+                                    <span class="name"><b> MergeCanvasses</b><a href="#MergeCanvasses"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>maxSizeCanvas()</code>
+            <code>MergeCanvasses()</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/canvas.service.ts:21</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:33</a></div>
                                         </td>
                                     </tr>
             
@@ -584,20 +617,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="resetRotation"></a>
-                                    <span class="name"><b> resetRotation</b><a href="#resetRotation"><span class="fa fa-link"></span></a></span>
+                                    <a name="ngAfterViewInit"></a>
+                                    <span class="name"><b> ngAfterViewInit</b><a href="#ngAfterViewInit"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>resetRotation()</code>
+            <code>ngAfterViewInit()</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/services/canvas.service.ts:47</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:25</a></div>
                                         </td>
                                     </tr>
             
@@ -616,20 +649,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="rotate"></a>
-                                    <span class="name"><b> rotate</b><a href="#rotate"><span class="fa fa-link"></span></a></span>
+                                    <a name="save"></a>
+                                    <span class="name"><b> save</b><a href="#save"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>rotate(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+            <code>save()</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/services/canvas.service.ts:42</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:29</a></div>
                                         </td>
                                     </tr>
             
@@ -637,99 +670,9 @@
                                 <td class="col-md-4">
             
                                         <div class="io-description">
-                                                <b>Parameters :</b>
-                                                <table class="params">
-                                                    <thead>
-                                                        <tr>
-                                                            <td>Name</td>
-                                                            <td>Type</td>
-                                                            <td>Optional</td>
-                                                            <td>Description</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                            <tr>
-                                                              <td>value</td>
-                                                              <td>
-                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                              </td>
-                                                              <td>
-                                                              </td>
-                                                              <td></td>
-                                                            </tr>
-                                                    </tbody>
-                                                </table>
-                                        </div>
-                                        <div>
-                                        </div>
-                                        <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
             
                                         </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="setCanvasSize"></a>
-                                    <span class="name"><b> setCanvasSize</b><a href="#setCanvasSize"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-            <code>setCanvasSize(size: literal type)</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/canvas.service.ts:38</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                                <b>Parameters :</b>
-                                                <table class="params">
-                                                    <thead>
-                                                        <tr>
-                                                            <td>Name</td>
-                                                            <td>Type</td>
-                                                            <td>Optional</td>
-                                                            <td>Description</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                            <tr>
-                                                              <td>size</td>
-                                                              <td>
-                                                                      <code>literal type</code>
-                                                              </td>
-                                                              <td>
-                                                              </td>
-                                                              <td></td>
-                                                            </tr>
-                                                    </tbody>
-                                                </table>
-                                        </div>
-                                        <div>
-                                        </div>
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-            
-                                        </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -745,93 +688,30 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="canvasSize$"></a>
-                                    <span class="name"><b> canvasSize$</b><a href="#canvasSize$"><span class="fa fa-link"></span></a></span>
+                                    <a name="canvasses"></a>
+                                    <span class="name"><b> canvasses</b><a href="#canvasses"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>canvasSize$:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/canvas.service.ts:18</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="maxSizeCanvas$"></a>
-                                    <span class="name"><b> maxSizeCanvas$</b><a href="#maxSizeCanvas$"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>maxSizeCanvas$:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/canvas.service.ts:17</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="rotate$"></a>
-                                    <span class="name"><b> rotate$</b><a href="#rotate$"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>rotate$:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/canvas.service.ts:19</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="rotation"></a>
-                                    <span class="name"><b><span class="modifier">Private</span> rotation</b><a href="#rotation"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-lock"></span><code>rotation:     <code></code>
+                                    <code>canvasses:     <code>QueryList&lt;ElementRef&gt;</code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>0</code>
+                                        <i>Type : </i>    <code>QueryList&lt;ElementRef&gt;</code>
+            
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Decorators : </i><code>ContentChildren</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/canvas.service.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:16</a></div>
                                         </td>
                                     </tr>
             
@@ -840,65 +720,73 @@
                     </table>
             </section>
 
+
     </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { BehaviorSubject } from &#x27;rxjs/BehaviorSubject&#x27;;
-import {Subject} from &#x27;rxjs/Subject&#x27;
-import { Globals } from &#x27;../helpers/globals&#x27;
+        <pre class="line-numbers"><code class="language-typescript">import { Directive, ContentChildren, AfterViewInit, QueryList, ElementRef } from &#x27;@angular/core&#x27;;
+import { SaveToFileService } from &#x27;../../services/save-to-file.service&#x27;
+import { ImageService } from &#x27;../../services/image.service&#x27;
+import { WatermarkService } from &#x27;../../services/watermark.service&#x27;
+import { DrawService } from &#x27;../../services/draw.service&#x27;
 
-/** CanvasService provides values for canvas width and height and rotation. The service reacts on changes in uploaded image and changes in viewport size and orientation.  */
+// saveAs is the only function of FileSaver.js. FileSaver.js is added to the scripts list in .angular-cli.json
+declare var saveAs: any;
 
-@Injectable()
-export class CanvasService {
+@Directive({
+  selector: &#x27;[jrSaveToFile]&#x27;
+})
+export class SaveToFileDirective implements AfterViewInit {
 
-  constructor(private globals: Globals) {
-    this.maxSizeCanvas();
-    window.addEventListener(&#x27;resize&#x27;, () &#x3D;&gt; this.globals.resizeThrottler(() &#x3D;&gt; this.maxSizeCanvas()), false); // call this.resizeThrottler from within an arrow function to have CanvasService as this; wrap this.maxSizeCanvas in arrow function so it has the CanvasService as this;
+
+  @ContentChildren(&#x27;image, watermark, view&#x27;) canvasses: QueryList&lt;ElementRef&gt;
+
+  constructor(
+    private saveToFileService: SaveToFileService,
+    private imageService: ImageService,
+    private watermarkService: WatermarkService,
+    private drawService: DrawService
+    ) { }
+
+  ngAfterViewInit() {
+    this.saveToFileService.save$.subscribe(save &#x3D;&gt; this.save());
   }
 
-  private rotation &#x3D; 0;
-  maxSizeCanvas$ &#x3D; new BehaviorSubject({width: 0, height: 0});
-  canvasSize$ &#x3D; new Subject&lt;{width: number, height: number}&gt;();
-  rotate$ &#x3D; new BehaviorSubject(0);
-
-  maxSizeCanvas() {
-    const viewPortWidth &#x3D; Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const viewPortHeight &#x3D; Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    let canvasWidth;
-    let canvasHeight;
-    const orientation &#x3D; viewPortWidth &lt;&#x3D; viewPortHeight ? &#x27;portrait&#x27; : &#x27;landscape&#x27;;
-    // by css the menu is set on the left side of landscape viewport and on the top side of portrait viewport; adjust the canvas size accordingly
-    if (orientation &#x3D;&#x3D;&#x3D; &#x27;landscape&#x27;) {
-      canvasWidth &#x3D; Math.min(viewPortWidth, this.globals.maxAppSize) - this.globals.menuSize;
-      canvasHeight &#x3D; Math.min(viewPortHeight, this.globals.maxAppSize - this.globals.menuSize);
-    } else {
-      canvasWidth &#x3D; Math.min(viewPortWidth, this.globals.maxAppSize - this.globals.menuSize);
-      canvasHeight &#x3D; Math.min(viewPortHeight, this.globals.maxAppSize) - this.globals.menuSize;
-    }
-    this.maxSizeCanvas$.next({ width: canvasWidth, height: canvasHeight });
+  save() {
+    this.MergeCanvasses();
   }
 
-  setCanvasSize(size: { width: number, height: number }) {
-    this.canvasSize$.next(size);
-  }
+  MergeCanvasses() {
+    const inMemCanvas &#x3D; document.createElement(&#x27;canvas&#x27;);
+    const inMemContext &#x3D; inMemCanvas.getContext(&#x27;2d&#x27;);
+    const image &#x3D; this.imageService.image;
+    inMemCanvas.width &#x3D; image.width;
+    inMemCanvas.height &#x3D; image.height;
 
-  rotate(value: number) {
-    this.rotation &#x3D; this.rotation + value;
-    this.rotate$.next(this.rotation);
-  }
+    inMemContext.drawImage(image, 0, 0);
+    inMemContext.drawImage(this.drawService.shadowDrawCanvas, 0, 0);
+    inMemContext.drawImage(this.watermarkService.shadowWatermarkCanvas, 0, 0);
 
-  resetRotation() {
-    this.rotation &#x3D; 0;
-    this.rotate$.next(0);
+/*    const imageCanvas: HTMLCanvasElement &#x3D; this.canvasses.first.nativeElement;
+    const imageCanvasContext &#x3D; imageCanvas.getContext(&#x27;2d&#x27;)
+    this.canvasses.filter(elRef &#x3D;&gt; elRef.nativeElement.id !&#x3D;&#x3D; &#x27;image-canvas&#x27;)
+      .forEach(elRef &#x3D;&gt; imageCanvasContext.drawImage(elRef.nativeElement, 0, 0));
+
+    inMemContext.drawImage(imageCanvas, 0, 0, inMemCanvas.width, inMemCanvas.height);*/
+    inMemCanvas.toBlob(blob &#x3D;&gt; saveAs(blob, &quot;kopie-van-ID.jpg&quot;));
+    //const dataUrl &#x3D; inMemCanvas.toDataURL(&quot;image/jpeg&quot;, 0.6);
   }
 
 }
+
+
+
 </code></pre>
     </div>
+
 </div>
+
 
 
 

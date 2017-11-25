@@ -90,9 +90,6 @@
                                 <li class="link">
                                     <a href="../components/MenuComponent.html" >MenuComponent</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -108,19 +105,19 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                </li>
-                                <li class="link">
                                     <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                    <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -157,10 +154,19 @@
                                     <a href="../injectables/CanvasService.html" >CanvasService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/DrawService.html" >DrawService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/Globals.html"  data-type="entity-link" class="active" >Globals</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ImageService.html" >ImageService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                 </li>
                         </ul>
                     </li>
@@ -277,9 +283,6 @@
                                        <li class="link">
                                            <a href="../components/MenuComponent.html" >MenuComponent</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -295,19 +298,19 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/ImageDirective.html" >ImageDirective</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                           <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -344,10 +347,19 @@
                                            <a href="../injectables/CanvasService.html" >CanvasService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/DrawService.html" >DrawService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/Globals.html"  data-type="entity-link" class="active" >Globals</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ImageService.html" >ImageService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                        </li>
                                </ul>
                            </li>
@@ -421,6 +433,13 @@
             <code>src/app/helpers/globals.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The global values for some app sizes. And a resizeThrottler function for global usage. </p>
+
+            </p>
 
 
             <section>
@@ -436,6 +455,9 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
+                                         <a href="#appBorderWidth">appBorderWidth</a>
+                                    </li>
+                                    <li>
                                         <span class="modifier">Private</span> <a href="#cachedInnerHeight">cachedInnerHeight</a>
                                     </li>
                                     <li>
@@ -443,6 +465,9 @@
                                     </li>
                                     <li>
                                          <a href="#maxAppSize">maxAppSize</a>
+                                    </li>
+                                    <li>
+                                         <a href="#maxAppSizeGross">maxAppSizeGross</a>
                                     </li>
                                     <li>
                                          <a href="#menuSize">menuSize</a>
@@ -494,7 +519,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/helpers/globals.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/helpers/globals.ts:20</a></div>
                                         </td>
                                     </tr>
             
@@ -549,6 +574,34 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <a name="appBorderWidth"></a>
+                                    <span class="name"><b> appBorderWidth</b><a href="#appBorderWidth"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>appBorderWidth:     <code></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>4</code>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/helpers/globals.ts:8</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <a name="cachedInnerHeight"></a>
                                     <span class="name"><b><span class="modifier">Private</span> cachedInnerHeight</b><a href="#cachedInnerHeight"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -567,7 +620,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/helpers/globals.ts:14</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/helpers/globals.ts:18</a></div>
                                         </td>
                                     </tr>
             
@@ -596,7 +649,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/helpers/globals.ts:13</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/helpers/globals.ts:17</a></div>
                                         </td>
                                     </tr>
             
@@ -617,14 +670,37 @@
             </code>
                                 </td>
                             </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/helpers/globals.ts:11</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="maxAppSizeGross"></a>
+                                    <span class="name"><b> maxAppSizeGross</b><a href="#maxAppSizeGross"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>maxAppSizeGross:     <code></code>
+            </code>
+                                </td>
+                            </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>840</code>
+                                        <i>Default value : </i><code>845</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/helpers/globals.ts:6</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/helpers/globals.ts:9</a></div>
                                         </td>
                                     </tr>
             
@@ -647,12 +723,12 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>40</code>
+                                        <i>Default value : </i><code>45</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/helpers/globals.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/helpers/globals.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -681,13 +757,13 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/helpers/globals.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/helpers/globals.ts:16</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>resizeTimeout is an window.setTimeout timer</p>
+                                    <div class="io-description"><p>resizeTimeout is undefined when a new resize event can be handled. During the handling of a resize event, resizeTimeout is the ID-number of a window.setTimeout timer.</p>
             </div>
                                 </td>
                             </tr>
@@ -702,14 +778,18 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
 
+/** The global values for some app sizes. And a resizeThrottler function for global usage. */
+
 @Injectable()
 export class Globals {
 
-  maxAppSize &#x3D; 840;
-  menuSize &#x3D; 40;
+  appBorderWidth &#x3D; 4;
+  maxAppSizeGross &#x3D; 845;
+  menuSize &#x3D; 45;
+  maxAppSize &#x3D; this.maxAppSizeGross - 2 * this.appBorderWidth;
 
 /**
- * resizeTimeout is an window.setTimeout timer
+ * resizeTimeout is undefined when a new resize event can be handled. During the handling of a resize event, resizeTimeout is the ID-number of a window.setTimeout timer.
  */
   private resizeTimeout: undefined | number ;
   private cachedInnerWidth: number;

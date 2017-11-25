@@ -90,9 +90,6 @@
                                 <li class="link">
                                     <a href="../components/MenuComponent.html" >MenuComponent</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -108,19 +105,19 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                </li>
-                                <li class="link">
                                     <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/ImageDirective.html"  data-type="entity-link" class="active" >ImageDirective</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                    <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                 </li>
                                 <li class="link">
                                     <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -157,10 +154,19 @@
                                     <a href="../injectables/CanvasService.html" >CanvasService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/DrawService.html" >DrawService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/Globals.html" >Globals</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/ImageService.html" >ImageService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                 </li>
                         </ul>
                     </li>
@@ -277,9 +283,6 @@
                                        <li class="link">
                                            <a href="../components/MenuComponent.html" >MenuComponent</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../components/PanelComponent.html" >PanelComponent</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -295,19 +298,19 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/AccordionDirective.html" >AccordionDirective</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../directives/DrawDirective.html" >DrawDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/ImageDirective.html"  data-type="entity-link" class="active" >ImageDirective</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../directives/RotateDirective.html" >RotateDirective</a>
+                                           <a href="../directives/SaveToFileDirective.html" >SaveToFileDirective</a>
                                        </li>
                                        <li class="link">
                                            <a href="../directives/UploadDirective.html" >UploadDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/WatermarkDirective.html" >WatermarkDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -344,10 +347,19 @@
                                            <a href="../injectables/CanvasService.html" >CanvasService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/DrawService.html" >DrawService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/Globals.html" >Globals</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/ImageService.html" >ImageService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SaveToFileService.html" >SaveToFileService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/WatermarkService.html" >WatermarkService</a>
                                        </li>
                                </ul>
                            </li>
@@ -421,6 +433,13 @@
             <code>src/app/canvas/image/image.directive.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ImageDirective computes the right size for the image, given the maximum size for the canvas. Then it puts the image on its canvas and sends the size of this canvas to the CanvasService. The CanvasService sends this size to subscribers so that canvasses can be adjusted to this size. </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Implements</h3>
@@ -637,7 +656,7 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>resizeCanvas(sizes: )</code>
+            <code>resizeCanvas(sizes: literal type)</code>
                                 </td>
                             </tr>
             
@@ -666,6 +685,7 @@
                                                             <tr>
                                                               <td>sizes</td>
                                                               <td>
+                                                                      <code>literal type</code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -851,11 +871,11 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Directive, ContentChild, ElementRef, OnInit, AfterViewInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Directive, ContentChild, ElementRef, AfterViewInit } from &#x27;@angular/core&#x27;;
 import { ImageService } from &#x27;../../services/image.service&#x27;
 import { CanvasService } from &#x27;../../services/canvas.service&#x27;
 
-/* ImageDirective computes the right size for the image, given the maximum size for the canvas. Then it puts the image on its canvas and sends the size of this canvas to the CanvasService. The CanvasService sends this size to subscribers so that canvasses can be adjusted to this size. */
+/** ImageDirective computes the right size for the image, given the maximum size for the canvas. Then it puts the image on its canvas and sends the size of this canvas to the CanvasService. The CanvasService sends this size to subscribers so that canvasses can be adjusted to this size. */
 
 @Directive({
   selector: &#x27;[jrImage]&#x27;
@@ -906,8 +926,8 @@ export class ImageDirective implements AfterViewInit {
     }
   }
 
-  resizeCanvas(sizes) {
-    this.canvasService.setCanvasSize(sizes)
+  resizeCanvas(sizes: {width: number, height: number}) {
+    this.canvasService.setCanvasSize(sizes);
   }
 }
 </code></pre>
