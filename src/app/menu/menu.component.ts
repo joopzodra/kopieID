@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   watermarkText: string;
   defaultWatermarkText = 'Kopie voor administratie';
   dateChecked = true;
+  penWidth = 10;
 
   constructor(
     private canvasService: CanvasService,
@@ -53,6 +54,7 @@ export class MenuComponent implements OnInit {
 
   setPenWidth(value: number) {
     this.drawService.setPenWidth(value);
+    this.penWidth = value;
   }
 
   changeWatermarkText(value: string, checked: boolean) {

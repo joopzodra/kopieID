@@ -11,8 +11,8 @@
         <div class="w3-container w3-theme-l4">
           <p>Laad een foto van je ID.</p>
           <div id="fileUpload" class=" w3-padding-16">
-            <label for="upload-input" id="upload-label" class="w3-button w3-theme">Foto kiezen ...</label>
-            <input id="upload-input" #uploadInput type="file" size="150" accept='image/*' (click)="uploadInput.value=''" (change)="reset();upload.onChange($event);uploadModal.style.display='none'">
+            <label for="upload-input" id="upload-label" class="w3-button w3-theme" (click)="uploadInput.value=''">Foto kiezen ...</label>
+            <input id="upload-input" #uploadInput type="file" accept='image/*' (change)="reset();upload.onChange($event);uploadModal.style.display='none'">
           </div>
         </div>
       </div>
@@ -28,15 +28,16 @@
     <div #drawModal class="w3-modal">
       <div class="w3-modal-content w3-text-black">
         <header class="w3-container w3-theme-d4">
-          <span (click)="drawModal.style.display='none';$event.stopPropagation()" class="w3-button w3-display-topright">&times;</span>        
+          <span (click)="drawModal.style.display='none';$event.stopPropagation();penWidthInput.value=penWidth" class="w3-button w3-display-topright">&times;</span>        
           <h3>Lijnen</h3>
         </header>
         <div class="w3-container w3-theme-l4">
           <div id="slidercontainer" class="w3-margin">
             <label for="pen-width" class="w3-padding-24">Pas lijndikte aan: {{penWidthInput.value}}</label>        
-            <input id="pen-width" #penWidthInput type="range" min="4" max="25" value="10" (input)="setPenWidth(penWidthInput.value)" (change)="setPenWidth(penWidthInput.value)"class="slider">
+            <input id="pen-width" #penWidthInput type="range" min="4" max="40" value="15" (input)="penWidthInput.value" class="slider">
           </div>
-          <button (click)="clearLines()" class="w3-margin w3-button w3-theme">Wis de lijnen </button>
+          <button (click)="clearLines()" class="w3-margin w3-button w3-theme-l3" id="clear-lines-button">Wis de lijnen </button>
+          <button (click)="setPenWidth(penWidthInput.value);drawModal.style.display='none';$event.stopPropagation();" id="draw-OK-button" class="w3-button w3-section w3-theme w3-margin float-right">OK</button>
         </div>
       </div>
     </div>
@@ -57,8 +58,8 @@
             <input #checkbox class="w3-check" type="checkbox" [checked]="dateChecked">
             <label>Datum toevoegen</label>
           </div>
-          <button class="w3-button w3-section w3-theme-l3" (click)="input.value=''">Wis tekst</button>
-          <button (click)="changeWatermarkText(input.value, checkbox.checked);watermarkModal.style.display='none';$event.stopPropagation();" class="w3-button w3-section w3-theme float-right">Opslaan</button>
+          <button class="w3-button w3-section w3-theme-l3" (click)="input.value=''" id="clear-watermark-button">Wis tekst</button>
+          <button (click)="changeWatermarkText(input.value, checkbox.checked);watermarkModal.style.display='none';$event.stopPropagation();" id="watermark-OK-button" class="w3-button w3-section w3-theme float-right">OK</button>   
         </div>
       </div>
     </div>
@@ -74,7 +75,7 @@
         </header>
         <div class="w3-container w3-theme-l4">
           <p>Sla je ID kopie op.</p>
-          <button class="w3-button w3-section w3-theme" (click)="save();saveModal.style.display='none';$event.stopPropagation()">Sla op</button>
+          <button id="save-OK-button" class="w3-button w3-section w3-theme" (click)="save();saveModal.style.display='none';$event.stopPropagation()">Sla op</button>
         </div>
       </div>
     </div>

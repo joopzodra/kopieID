@@ -31,20 +31,23 @@ h2 {
   margin: 0;
 }
 
-#upload-menu h2 {
+#upload-menu h2, #upload-label {
   background-image: url(/assets/icons-white/iconmonstr-picture-12-64.png);
 }
 #rotate-menu h2 {
   background-image: url(/assets/icons-white/iconmonstr-redo-2-64.png);
 }
-#draw-menu h2 {
+#draw-menu h2, #draw-OK-button {
   background-image: url(/assets/icons-white/iconmonstr-pencil-10-64.png);  
 }
-#watermark-menu h2 {
-  background-image: url(/assets/icons-white/iconmonstr-text-3-64.png);  
+#watermark-menu h2, #watermark-OK-button {
+  background-image: url(/assets/icons-white/iconmonstr-text-15-64.png);  
 }
-#save-menu h2 {
+#save-menu h2, #save-OK-button {
   background-image: url(/assets/icons-white/iconmonstr-download-2-64.png);  
+}
+#clear-lines-button, #clear-watermark-button {
+  background-image: url(/assets/icons-black/iconmonstr-x-mark-1-64.png);  
 }
 
 /* Html upload input cannot be styled with css. Don't display it and style the label instead (by w3 classes) */
@@ -59,6 +62,21 @@ textarea {
 .float-right {
   float: right;
   clear: both;
+}
+
+/* Background images for buttons */
+#upload-label, #draw-OK-button, #watermark-OK-button, #save-OK-button {
+  background-repeat: no-repeat;
+  padding-left: 39px;
+  background-size: 24px;
+  background-position: 7px 7px;
+}
+
+#clear-lines-button ,#clear-watermark-button {
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  background-size: 18px;
+  background-position: 11px 11px;
 }
 
 /* Slider for lines setting (brush width) */

@@ -10,14 +10,9 @@ export class UploadDirective {
 
   constructor(private imageService: ImageService) { }
 
-  ngOnInit() {
-    const img = new Image();
-    img.onload = () => this.imageService.loadImage(img);
-  }
-
   onChange(event: Event) {
-    let inputTarget: HTMLInputElement = <HTMLInputElement>event.target || <HTMLInputElement>event.srcElement; //browser compatibility
-    let newFile = (inputTarget).files[0];
+    const inputTarget: HTMLInputElement = <HTMLInputElement>event.target || <HTMLInputElement>event.srcElement; //browser compatibility
+    const newFile = (inputTarget).files[0];
     if (!newFile) {
       return
     }
@@ -30,8 +25,8 @@ export class UploadDirective {
   }
 
   loadImg(file: File) {
-    let reader = new FileReader();
-    let img = new Image();
+    const reader = new FileReader();
+    const img = new Image();
     reader.readAsDataURL(file);
 
     return new Promise((resolve, reject) => {
