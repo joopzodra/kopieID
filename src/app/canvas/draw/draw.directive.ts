@@ -94,7 +94,7 @@ export class DrawDirective implements AfterViewInit {
       this.shadowContext.lineCap = 'round';
       this.shadowContext.lineTo(shadowX, shadowY);
       this.shadowContext.stroke();
-      this.shadowContext.closePath(); console.log(this.shadowX0, this.shadowY0, shadowX, shadowY)
+      this.shadowContext.closePath();
     }
   }
 
