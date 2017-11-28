@@ -16,7 +16,7 @@ export class CanvasService {
   private rotation = 0;
   maxSizeCanvas$ = new BehaviorSubject({width: 0, height: 0});
   canvasSize$ = new Subject<{width: number, height: number}>();
-  rotate$ = new Subject<number>();
+  rotate$ = new BehaviorSubject(0);
 
   maxSizeCanvas() {
     const viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);

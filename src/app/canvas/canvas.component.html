@@ -3,7 +3,7 @@
     <canvas id="image-canvas" jrImage #image>Je browser is niet geschikt deze webtool.</canvas>
     <div jrDraw #draw="draw">
       <canvas id="view-canvas" #view [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
-      <canvas id="temp-canvas" #temp (mousedown)="draw.startLine($event)" (mousemove)="draw.drawLine($event)" (mouseup)="draw.endLine($event)" [style.pointer-events]="true ? 'auto' : 'none' " [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
+      <canvas id="temp-canvas" #temp (mousedown)="draw.startLine($event)" (mousemove)="draw.drawLine($event)" (mouseup)="draw.endLine()" (touchstart)="draw.touchStart($event)" (touchmove)="draw.touchMove($event)" (touchend)="draw.endLine()" [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
     </div>
     <canvas id="watermark-canvas" jrWatermark #watermark [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
   </div>
