@@ -172,6 +172,22 @@
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/TouchOffset.html" >TouchOffset</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -365,6 +381,22 @@
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/TouchOffset.html" >TouchOffset</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -471,6 +503,9 @@
                                     <li>
                                          <a href="#canvasses">canvasses</a>
                                     </li>
+                                    <li>
+                                         <a href="#rotation">rotation</a>
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -483,13 +518,10 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                         <a href="#MergeCanvasses">MergeCanvasses</a>
-                                    </li>
-                                    <li>
                                          <a href="#ngAfterViewInit">ngAfterViewInit</a>
                                     </li>
                                     <li>
-                                         <a href="#save">save</a>
+                                         <a href="#saveCanvas">saveCanvas</a>
                                     </li>
                                 </ul>
                             </td>
@@ -504,12 +536,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(saveToFileService: <a href="../injectables/SaveToFileService.html">SaveToFileService</a>, imageService: <a href="../injectables/ImageService.html">ImageService</a>, watermarkService: <a href="../injectables/WatermarkService.html">WatermarkService</a>, drawService: <a href="../injectables/DrawService.html">DrawService</a>)</code>
+                                    <code>constructor(saveToFileService: <a href="../injectables/SaveToFileService.html">SaveToFileService</a>, imageService: <a href="../injectables/ImageService.html">ImageService</a>, watermarkService: <a href="../injectables/WatermarkService.html">WatermarkService</a>, drawService: <a href="../injectables/DrawService.html">DrawService</a>, canvasService: <a href="../injectables/CanvasService.html">CanvasService</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:17</a></div>
                                         </td>
                                     </tr>
             
@@ -563,6 +595,15 @@
                                                               </td>
                                                               <td></td>
                                                             </tr>
+                                                            <tr>
+                                                              <td>canvasService</td>
+                                                              <td>
+                                                                        <code><a href="../injectables/CanvasService.html" target="_self" >CanvasService</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
                                                     </tbody>
                                                 </table>
                                         </div>
@@ -585,38 +626,6 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="MergeCanvasses"></a>
-                                    <span class="name"><b> MergeCanvasses</b><a href="#MergeCanvasses"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-            <code>MergeCanvasses()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:33</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
                                     <a name="ngAfterViewInit"></a>
                                     <span class="name"><b> ngAfterViewInit</b><a href="#ngAfterViewInit"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -630,7 +639,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:25</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:27</a></div>
                                         </td>
                                     </tr>
             
@@ -649,20 +658,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="save"></a>
-                                    <span class="name"><b> save</b><a href="#save"><span class="fa fa-link"></span></a></span>
+                                    <a name="saveCanvas"></a>
+                                    <span class="name"><b> saveCanvas</b><a href="#saveCanvas"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>save()</code>
+            <code>saveCanvas()</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:29</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:32</a></div>
                                         </td>
                                     </tr>
             
@@ -718,6 +727,34 @@
             
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="rotation"></a>
+                                    <span class="name"><b> rotation</b><a href="#rotation"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>rotation:     <code></code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>0</code>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/canvas/save-to-file/save-to-file.directive.ts:17</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
             </section>
 
 
@@ -730,58 +767,66 @@ import { SaveToFileService } from &#x27;../../services/save-to-file.service&#x27
 import { ImageService } from &#x27;../../services/image.service&#x27;
 import { WatermarkService } from &#x27;../../services/watermark.service&#x27;
 import { DrawService } from &#x27;../../services/draw.service&#x27;
+import { CanvasService } from &#x27;../../services/canvas.service&#x27;
 
 // saveAs is the only function of FileSaver.js. FileSaver.js is added to the scripts list in .angular-cli.json
-declare var saveAs: any;
+declare const saveAs: any;
 
 @Directive({
   selector: &#x27;[jrSaveToFile]&#x27;
 })
 export class SaveToFileDirective implements AfterViewInit {
 
-
   @ContentChildren(&#x27;image, watermark, view&#x27;) canvasses: QueryList&lt;ElementRef&gt;
+  rotation &#x3D; 0;
 
   constructor(
     private saveToFileService: SaveToFileService,
     private imageService: ImageService,
     private watermarkService: WatermarkService,
-    private drawService: DrawService
-    ) { }
+    private drawService: DrawService,
+    private canvasService: CanvasService
+  ) { }
 
   ngAfterViewInit() {
-    this.saveToFileService.save$.subscribe(save &#x3D;&gt; this.save());
+    this.saveToFileService.save$.subscribe(save &#x3D;&gt; this.saveCanvas());
+    this.canvasService.rotate$.subscribe(rotation &#x3D;&gt; this.rotation &#x3D; rotation);
   }
 
-  save() {
-    this.MergeCanvasses();
-  }
-
-  MergeCanvasses() {
+  saveCanvas() {
     const inMemCanvas &#x3D; document.createElement(&#x27;canvas&#x27;);
     const inMemContext &#x3D; inMemCanvas.getContext(&#x27;2d&#x27;);
     const image &#x3D; this.imageService.image;
-    inMemCanvas.width &#x3D; image.width;
-    inMemCanvas.height &#x3D; image.height;
-
+    if (this.rotation % 180 !&#x3D;&#x3D; 0) {
+      inMemCanvas.width &#x3D; image.height;
+      inMemCanvas.height &#x3D; image.width;
+    } else {
+      inMemCanvas.width &#x3D; image.width;
+      inMemCanvas.height &#x3D; image.height;
+    }
+    const quarterTurns &#x3D; (this.rotation / 90) % 4;
+    switch (quarterTurns) {
+      case 1:
+        inMemContext.translate(inMemCanvas.width, 0);
+        inMemContext.rotate(90 * Math.PI / 180);
+        break;
+      case 2:
+        inMemContext.translate(inMemCanvas.width / 2, inMemCanvas.height / 2);
+        inMemContext.rotate(180 * Math.PI / 180);
+        inMemContext.translate(-inMemCanvas.width / 2, -inMemCanvas.height / 2);
+        break;
+      case 3:
+        inMemContext.translate(0, inMemCanvas.height);
+        inMemContext.rotate(-90 * Math.PI / 180);
+        break;
+    }
     inMemContext.drawImage(image, 0, 0);
     inMemContext.drawImage(this.drawService.shadowDrawCanvas, 0, 0);
     inMemContext.drawImage(this.watermarkService.shadowWatermarkCanvas, 0, 0);
 
-/*    const imageCanvas: HTMLCanvasElement &#x3D; this.canvasses.first.nativeElement;
-    const imageCanvasContext &#x3D; imageCanvas.getContext(&#x27;2d&#x27;)
-    this.canvasses.filter(elRef &#x3D;&gt; elRef.nativeElement.id !&#x3D;&#x3D; &#x27;image-canvas&#x27;)
-      .forEach(elRef &#x3D;&gt; imageCanvasContext.drawImage(elRef.nativeElement, 0, 0));
-
-    inMemContext.drawImage(imageCanvas, 0, 0, inMemCanvas.width, inMemCanvas.height);*/
-    inMemCanvas.toBlob(blob &#x3D;&gt; saveAs(blob, &quot;kopie-van-ID.jpg&quot;));
-    //const dataUrl &#x3D; inMemCanvas.toDataURL(&quot;image/jpeg&quot;, 0.6);
+    inMemCanvas.toBlob(blob &#x3D;&gt; saveAs(blob, &#x27;kopie-van-ID.jpg&#x27;), &#x27;image/jpeg&#x27;, 0.8);
   }
-
 }
-
-
-
 </code></pre>
     </div>
 

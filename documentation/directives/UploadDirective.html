@@ -172,6 +172,22 @@
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/TouchOffset.html" >TouchOffset</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -365,6 +381,22 @@
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/TouchOffset.html" >TouchOffset</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -466,9 +498,6 @@
                                          <a href="#loadImg">loadImg</a>
                                     </li>
                                     <li>
-                                         <a href="#ngOnInit">ngOnInit</a>
-                                    </li>
-                                    <li>
                                          <a href="#onChange">onChange</a>
                                     </li>
                                 </ul>
@@ -551,7 +580,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/menu/upload/upload.directive.ts:35</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/menu/upload/upload.directive.ts:34</a></div>
                                         </td>
                                     </tr>
             
@@ -599,38 +628,6 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="ngOnInit"></a>
-                                    <span class="name"><b> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-            <code>ngOnInit()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/menu/upload/upload.directive.ts:13</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
                                     <a name="onChange"></a>
                                     <span class="name"><b> onChange</b><a href="#onChange"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -644,7 +641,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/menu/upload/upload.directive.ts:21</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/menu/upload/upload.directive.ts:20</a></div>
                                         </td>
                                     </tr>
             
@@ -708,21 +705,20 @@ export class UploadDirective {
 
   constructor(private imageService: ImageService) { }
 
-  ngOnInit() {
+/*  ngOnInit() {
     const img &#x3D; new Image();
     img.onload &#x3D; () &#x3D;&gt; this.imageService.loadImage(img);
-    //img.src &#x3D; &#x27;assets/temp-image/stadia.jpg&#x27;;
-    img.src &#x3D; &#x27;assets/temp-image/JR.jpg&#x27;;
-    //img.src &#x3D; &#x27;assets/temp-image/JR-rotated.jpg&#x27;;
-  }
+    img.src &#x3D; &#x27;assets/sample-image/voorbeeld-paspoort.jpg&#x27;;
+    img.src &#x3D; &#x27;assets/sample-image/stadia-rotated.jpg&#x27;;
+  }*/
 
   onChange(event: Event) {
-    let inputTarget: HTMLInputElement &#x3D; &lt;HTMLInputElement&gt;event.target || &lt;HTMLInputElement&gt;event.srcElement; //browser compatibility
-    let newFile &#x3D; (inputTarget).files[0];
+    const inputTarget: HTMLInputElement &#x3D; &lt;HTMLInputElement&gt;event.target || &lt;HTMLInputElement&gt;event.srcElement; //browser compatibility
+    const newFile &#x3D; (inputTarget).files[0];
     if (!newFile) {
       return
     }
-    if (newFile.type.match(&#x27;image.*&#x27;)) { console.log(&#x27;match image&#x27;)
+    if (newFile.type.match(&#x27;image.*&#x27;)) {
       this.loadImg(newFile);
     }
     else {
@@ -730,9 +726,9 @@ export class UploadDirective {
     }
   }
 
-  loadImg(file: File) { console.log(&#x27;load niewfile&#x27;)
-    let reader &#x3D; new FileReader();
-    let img &#x3D; new Image();
+  loadImg(file: File) {
+    const reader &#x3D; new FileReader();
+    const img &#x3D; new Image();
     reader.readAsDataURL(file);
 
     return new Promise((resolve, reject) &#x3D;&gt; {
@@ -746,7 +742,6 @@ export class UploadDirective {
       })
       .catch(error &#x3D;&gt; console.log(error));
   }
-
 }
 </code></pre>
     </div>
