@@ -10,6 +10,13 @@ export class UploadDirective {
 
   constructor(private imageService: ImageService) { }
 
+/*  ngOnInit() {
+    const img = new Image();
+    img.onload = () => this.imageService.loadImage(img);
+    img.src = 'assets/sample-image/voorbeeld-paspoort.jpg';
+    img.src = 'assets/sample-image/stadia-rotated.jpg';
+  }*/
+
   onChange(event: Event) {
     const inputTarget: HTMLInputElement = <HTMLInputElement>event.target || <HTMLInputElement>event.srcElement; //browser compatibility
     const newFile = (inputTarget).files[0];

@@ -41,6 +41,7 @@ export class DrawDirective implements AfterViewInit {
   shadowY0: number;
   mouseEventCache: MouseEvent | TouchOffset;
   penWidth = 10;
+  rotation = 0;
 
   touchOffsetX: (touch: Touch) => number;
   touchOffsetY: (touch: Touch) => number;
@@ -57,7 +58,10 @@ export class DrawDirective implements AfterViewInit {
       this.shadowCanvas.width = image.width;
       this.shadowCanvas.height = image.height;
     });
-    this.canvasService.rotate$.subscribe(rotation => setTimeout(() => this.clientToOffset(rotation), 0));
+    this.canvasService.rotate$.subscribe(rotation => setTimeout(() => {
+      this.clientToOffset(rotation);
+      this.rotation = rotation;
+    }, 0));
   }
 
   startLine(event: MouseEvent | TouchOffset) {
@@ -136,6 +140,10 @@ export class DrawDirective implements AfterViewInit {
 
   touchStart(event: TouchEvent) {
     event.preventDefault();
+    if (event.touches.length > 1) {
+      this.tempContext.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
+      return;
+    }
     let touch = event.touches[0];
     const offsetX = this.touchOffsetX(touch);
     const offsetY = this.touchOffsetY(touch);
@@ -144,6 +152,10 @@ export class DrawDirective implements AfterViewInit {
 
   touchMove(event: TouchEvent) {
     event.preventDefault();
+    if (event.touches.length > 1) {
+      this.tempContext.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
+      return;
+    }
     let touch = event.touches[0];
     const offsetX = this.touchOffsetX(touch);
     const offsetY = this.touchOffsetY(touch);
@@ -163,7 +175,10 @@ export class DrawDirective implements AfterViewInit {
   }
 
   onCanvasResize(sizes: { width: number, height: number }) {
-    setTimeout(() => this.viewContext.drawImage(this.inMemCanvas, 0, 0, sizes.width, sizes.height), 0);
+    setTimeout(() => {
+      this.viewContext.drawImage(this.inMemCanvas, 0, 0, sizes.width, sizes.height);
+      this.clientToOffset(this.rotation);
+    }, 0);
   }
 
   clearLines() {

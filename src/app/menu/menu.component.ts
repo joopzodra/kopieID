@@ -66,4 +66,6 @@ export class MenuComponent implements OnInit {
   save() {
     this.saveToFileService.save$.next(true);
   }
+
+  melden(event: any) { console.log(event)}
 }
