@@ -1,5 +1,9 @@
 <div id="menu">
 
+  <div id="home-menu" class="menu-item" (click)="toFrontendJR()">
+    <h2></h2>    
+  </div>
+
   <div id="upload-menu" class="menu-item" jrUpload #upload="upload" (click)="uploadModal.style.display='block'">
     <h2></h2>
     <div #uploadModal class="w3-modal" [style.display]="image ? 'none' : 'block'">

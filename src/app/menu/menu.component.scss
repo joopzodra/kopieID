@@ -30,7 +30,12 @@ h2 {
   background-size: contain;
   margin: 0;
 }
-
+.menu-item h2:hover {
+  cursor: pointer;
+}
+#home-menu h2 {
+  background-image: url(/assets/icons-white/iconmonstr-home-6-64.png);
+}
 #upload-menu h2, #upload-label {
   background-image: url(/assets/icons-white/iconmonstr-picture-12-64.png);
 }

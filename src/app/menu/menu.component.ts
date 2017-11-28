@@ -67,5 +67,7 @@ export class MenuComponent implements OnInit {
     this.saveToFileService.save$.next(true);
   }
 
-  melden(event: any) { console.log(event)}
+  toFrontendJR() {
+    window.location.href = 'http://frontendJR.nl';
+  }
 }
