@@ -1,6 +1,15 @@
 # KopieID
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+With this app you can hide you're personal number on copies of identity papers, like a passport, so the person receiving the copy can't misuse you're personal number. And add a watermark to the copy.
+
+- Upload an image of your identity card (ID).
+- Draw one or more lines with the mouse or finger. (You can adjust the line width.)
+- Change the watermarkt text if you like.
+- Download the new copy of your ID.
+
+The app works on every image: you can draw straight black lines on any images and add a watermark. 
+
+The app uses several html-canvasses: one for the image, two canvas for drawing the strike-through line and one for the watermark text. Before downloading, these are merged.
 
 ## Development server
 
@@ -14,14 +23,5 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Angular
+The app is made with Angular 5. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
