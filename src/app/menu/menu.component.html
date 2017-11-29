@@ -1,7 +1,9 @@
 <div id="menu">
 
-  <div id="home-menu" class="menu-item" (click)="toFrontendJR()">
-    <h2></h2>    
+  <div id="home-menu" class="menu-item">
+    <a href="http://frontendJR.nl"> 
+      <h2></h2>
+    </a>
   </div>
 
   <div id="upload-menu" class="menu-item" jrUpload #upload="upload" (click)="uploadModal.style.display='block'">
@@ -80,7 +82,7 @@
         <div class="w3-container w3-theme-l4">
           <p>Sla je ID kopie op.</p>
           <button id="save-OK-button" class="w3-button w3-section w3-theme" (click)="save();saveModal.style.display='none';$event.stopPropagation()">Sla op</button>
-          <p class="additional">(iPhone en iPad slaan bestand niet direct op maar laten bestand zien in nieuwe tab. Van daaruit kun je bestand opslaan, mailen en delen.)</p>
+          <p class="additional">(iPhone en iPad slaan bestand niet direct op maar laten het zien in nieuwe tab. Van daaruit kun je opslaan, mailen en delen.)</p>
         </div>
       </div>
     </div>
