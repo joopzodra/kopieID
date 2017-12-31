@@ -7,6 +7,7 @@
   max-width: $max-app-size;
   max-height: $max-app-size - $menu-size;
   height: 100vh;
+  overflow: hidden; /* otherwise app doesn't fill all device width on mobile device */
 
   @media (min-height: $max-app-size) {
     margin-top: 20px;
