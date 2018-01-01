@@ -21,3 +21,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Angular
 The app is made with Angular 5. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+
+
+## App overview
+
+![Global app diagram](documentation/kopieID-container-diagram.jpeg "Global overview")
+
+![Detailed app diagram](documentation/kopieID-component-diagram.jpeg "Detailed overview")

@@ -42,4 +42,6 @@ testem.log
 Thumbs.db
 
 kopieID.sublime-project
-kopieID.sublime-workspace
+
+# Documentation
+/documentation/*.key
